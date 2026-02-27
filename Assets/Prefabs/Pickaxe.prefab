@@ -10,9 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 8713080845347984724}
   - component: {fileID: 5220906792055786177}
-  - component: {fileID: 8720482759118375452}
+  - component: {fileID: 8477646924694592992}
   - component: {fileID: 3183162072520045708}
   - component: {fileID: 7015545786213262373}
+  - component: {fileID: 3963854907685616064}
   m_Layer: 7
   m_Name: Pickaxe
   m_TagString: Pickaxe
@@ -28,7 +29,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2769734730288082402}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.63, y: 0, z: -1}
   m_LocalScale: {x: 0.48999998, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
@@ -84,8 +85,8 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 21300000, guid: a98ced0f8a7dcce4f9f69af0a11bdf89, type: 3}
-  m_Color: {r: 0.6075471, g: 0.22521524, b: 0.026365183, a: 1}
+  m_Sprite: {fileID: -7561132514516295833, guid: 6b9310602b04ff741a5dbb0a4bb421c5, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 1
   m_DrawMode: 0
@@ -94,8 +95,8 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
---- !u!61 &8720482759118375452
-BoxCollider2D:
+--- !u!58 &8477646924694592992
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -129,17 +130,7 @@ BoxCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.28, y: 1.28}
-    newSize: {x: 1.28, y: 1.28}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Size: {x: 1.28, y: 1.28}
-  m_EdgeRadius: 0
+  m_Radius: 0.4
 --- !u!50 &3183162072520045708
 Rigidbody2D:
   serializedVersion: 5
@@ -179,6 +170,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: baeda2d20b49b2642b712d7b595b4138, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PickaxeProjectile
+  dir: 32
+  damage: 0
   speed: 8
   throwDistance: 3
-  playerTransform: {fileID: 0}
+--- !u!95 &3963854907685616064
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2769734730288082402}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 08aa516253920244e8c4765553dbf70b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
