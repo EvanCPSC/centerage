@@ -7,6 +7,8 @@ TagManager:
   - Pickaxe
   - Wall
   - Enemy
+  - SpawnPoint
+  - Rooms
   layers:
   - Default
   - TransparentFX
