@@ -483,6 +483,10 @@ MonoBehaviour:
   - {fileID: 2975935733891264366, guid: da4cfd1e0b7b4bc409a953da2e778723, type: 3}
   - {fileID: 4573747215530883145, guid: 40a91c66b326f39429b76073ea91fdb7, type: 3}
   - {fileID: 7871822005747648863, guid: 2c18a7c1822ed9d43969f2f2df5cb9e0, type: 3}
+  closedRoom: {fileID: 5178835243025313613, guid: 475db0b890d1a4a42aa5c112fa319e94, type: 3}
+  rooms: []
+  waitTime: 2
+  exit: {fileID: 2563289458780607099, guid: 1b7df13add724e34a84480b94d47e3ed, type: 3}
 --- !u!4 &1710321647
 Transform:
   m_ObjectHideFlags: 0

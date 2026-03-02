@@ -52,8 +52,10 @@
     <Compile Include="Assets\Scripts\RoomTemplates.cs" />
     <Compile Include="Assets\Scripts\EnemyManager.cs" />
     <Compile Include="Assets\Scripts\PlayerStats.cs" />
+    <Compile Include="Assets\Scripts\Destroyer.cs" />
     <Compile Include="Assets\Scripts\PickaxeProjectile.cs" />
     <Compile Include="Assets\Scripts\RoomSpawner.cs" />
+    <Compile Include="Assets\Scripts\AddRoom.cs" />
     <Compile Include="Assets\Scripts\PlayerMovement.cs" />
   </ItemGroup>
   <ItemGroup>
