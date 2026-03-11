@@ -1,4 +1,6 @@
 using UnityEngine;
+using System.Collections;
+using System.Collections.Generic;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -30,7 +32,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (Input.GetButtonDown("Cancel"))
         {
-            UnityEngine.SceneManagement.SceneManager.LoadScene(0);
+            GameManager.Instance.PauseGame();
         }
 
         if(Input.GetButtonDown("FireL") && pickaxe == null)
@@ -78,6 +80,31 @@ public class PlayerMovement : MonoBehaviour
     {
         rb.linearVelocity = new Vector2(horizontal * speed, vertical * speed);
     }
+
+    void OnTriggerEnter2D(Collider2D trigger)
+    {
+        if (trigger.gameObject.CompareTag("DoorL"))
+        {
+            rb.position = new Vector2(rb.position.x - 4.5f, rb.position.y);
+            Camera.main.transform.position = new Vector2(Camera.main.transform.position.x - 18f, Camera.main.transform.position.y);
+        }
+        if (trigger.gameObject.CompareTag("DoorR"))
+        {
+            rb.position = new Vector2(rb.position.x + 4.5f, rb.position.y);
+            Camera.main.transform.position = new Vector2(Camera.main.transform.position.x + 18f, Camera.main.transform.position.y);
+        }
+        if (trigger.gameObject.CompareTag("DoorT"))
+        {
+            rb.position = new Vector2(rb.position.x, rb.position.y + 4.5f);
+            Camera.main.transform.position = new Vector2(Camera.main.transform.position.x, Camera.main.transform.position.y + 10f);
+        }
+        if (trigger.gameObject.CompareTag("DoorB"))
+        {
+            rb.position = new Vector2(rb.position.x, rb.position.y - 4.5f);
+            Camera.main.transform.position = new Vector2(Camera.main.transform.position.x , Camera.main.transform.position.y- 10f);
+        }
+    }
+
     void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Enemy"))
