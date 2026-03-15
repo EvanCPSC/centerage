@@ -5,6 +5,8 @@ using System.Collections.Generic;
 public class AddRoom : MonoBehaviour
 {
     private RoomTemplates templates;
+    
+    public GameObject spawnpoints;
 
     void Start()
     {

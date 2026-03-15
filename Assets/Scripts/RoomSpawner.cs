@@ -10,6 +10,7 @@ public class RoomSpawner : MonoBehaviour
     // 3 -> need bottom door
     // 4 -> need top door
 
+
     private RoomTemplates templates;
     private int rand;
     public bool spawned = false;
@@ -57,15 +58,70 @@ public class RoomSpawner : MonoBehaviour
     
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("SpawnPoint"))
-        {
-            if (other.GetComponent<RoomSpawner>().spawned == false && !spawned)
+        if (other != null) {
+            if (other.CompareTag("SpawnPoint"))
             {
-                // spawn some kinda other room to close it off
-                Instantiate(templates.closedRoom, transform.position, Quaternion.identity);
-                Destroy(gameObject);
+            
+                if (other.GetComponent<RoomSpawner>().spawned == false && !spawned)
+                {
+                    // spawn some kinda other room to close it off
+                    GameObject temproom = templates.closedRoom;
+                    // bool madeRoom = false;
+                    // int otherDir = other.gameObject.GetComponent<RoomSpawner>().openingDirection;
+                    // if ((openingDirection == 1 && otherDir == 3) || (openingDirection == 3 && otherDir == 1))
+                    // {
+                    //     // need right and bottom door
+                    //     temproom = templates.getRoom("RB");
+                    //     madeRoom = true;
+                    // } else if ((openingDirection == 1 && otherDir == 4) || (openingDirection == 4 && otherDir == 1))
+                    // {
+                    //     // need top and right door
+                    //     temproom = templates.getRoom("TR");
+                    //     madeRoom = true;
+                    // } else if ((openingDirection == 2 && otherDir == 3) || (openingDirection == 3 && otherDir == 2))
+                    // {
+                    //     // need left and bottom door
+                    //     temproom = templates.getRoom("LB");
+                    //     madeRoom = true;
+                    // } else if ((openingDirection == 2 && otherDir == 4) || (openingDirection == 2 && otherDir == 4))
+                    // {
+                    //     // need top and left door
+                    //     temproom = templates.getRoom("TL");
+                    //     madeRoom = true;
+                    // } else if ((openingDirection == 3 && otherDir == 4) || (openingDirection == 3 && otherDir == 4))
+                    // {
+                    //     // need top and bottom door
+                    //     temproom = templates.getRoom("TB");
+                    //     madeRoom = true;
+                    // } else if ((openingDirection == 1 && otherDir == 2) || (openingDirection == 1 && otherDir == 2))
+                    // {
+                    //     // need left and right door
+                    //     temproom = templates.getRoom("LR");
+                    //     madeRoom = true;
+                    // }
+                    // // destroy spawnpoints to not make extra door
+                    // if (madeRoom)
+                    // {
+                    //     GameObject[] roomChildren = GetComponentsInChildren<GameObject>(true); 
+                    //     foreach (GameObject child in roomChildren)
+                    //     {
+                    //         if (child.name != "Destroyer")
+                    //         {
+                    //             Destroy(child);
+                    //         }
+                    //     }
+                    //     temproom.GetComponent<RoomSpawner>().waitTime = 0f;
+                    // }
+                    Instantiate(temproom, transform.position, Quaternion.identity);
+                }
+                spawned = true;
+
             }
-            spawned = true;
+            
+            if (other.CompareTag("DoorSpawner"))
+            {
+                other.GetComponent<DoorSpawner>().doorDirections.Add(openingDirection);
+            }
         }
     }
 

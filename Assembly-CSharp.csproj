@@ -56,6 +56,7 @@
     <Compile Include="Assets\Scripts\PickaxeProjectile.cs" />
     <Compile Include="Assets\Scripts\RoomSpawner.cs" />
     <Compile Include="Assets\Scripts\AddRoom.cs" />
+    <Compile Include="Assets\Scripts\DoorSpawner.cs" />
     <Compile Include="Assets\Scripts\PlayerMovement.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />
   </ItemGroup>
