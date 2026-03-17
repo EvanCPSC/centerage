@@ -15,6 +15,7 @@ TagManager:
   - DoorB
   - DoorSpawner
   - Exit
+  - Item
   layers:
   - Default
   - TransparentFX
@@ -26,7 +27,7 @@ TagManager:
   - Pickaxe
   - Enemy
   - Wall
-  - 
+  - Item
   - 
   - 
   - 

@@ -49,16 +49,17 @@
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\6000.3.5f1\Editor\Data\Tools\BuildPipeline\Unity.SourceGenerators\Unity.UIToolkit.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\RoomTemplates.cs" />
-    <Compile Include="Assets\Scripts\EnemyManager.cs" />
+    <Compile Include="Assets\Scripts\EnemyBehoulder.cs" />
+    <Compile Include="Assets\Scripts\Room Gen\Destroyer.cs" />
+    <Compile Include="Assets\Scripts\ItemManager.cs" />
     <Compile Include="Assets\Scripts\PlayerStats.cs" />
-    <Compile Include="Assets\Scripts\Destroyer.cs" />
     <Compile Include="Assets\Scripts\PickaxeProjectile.cs" />
-    <Compile Include="Assets\Scripts\RoomSpawner.cs" />
-    <Compile Include="Assets\Scripts\AddRoom.cs" />
-    <Compile Include="Assets\Scripts\DoorSpawner.cs" />
+    <Compile Include="Assets\Scripts\Room Gen\RoomTemplates.cs" />
     <Compile Include="Assets\Scripts\PlayerMovement.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />
+    <Compile Include="Assets\Scripts\Room Gen\DoorSpawner.cs" />
+    <Compile Include="Assets\Scripts\Room Gen\RoomSpawner.cs" />
+    <Compile Include="Assets\Scripts\Room Gen\AddRoom.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

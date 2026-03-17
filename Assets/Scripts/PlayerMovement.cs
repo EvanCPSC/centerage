@@ -9,7 +9,7 @@ public class PlayerMovement : MonoBehaviour
     private float lastHorizontal;
     private float lastVertical;
     private float speed;
-    private int health;
+    private float health;
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private GameObject pickaxePrefab;
     [SerializeField] private Transform firePoint;
@@ -133,7 +133,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Enemy"))
         {
-            health -= 1;
+            health -= 1f;
         }
     }
 }
