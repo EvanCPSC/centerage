@@ -16,6 +16,8 @@ TagManager:
   - DoorSpawner
   - Exit
   - Item
+  - GameManager
+  - Floor
   layers:
   - Default
   - TransparentFX

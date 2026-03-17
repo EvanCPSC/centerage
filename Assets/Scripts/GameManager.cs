@@ -5,6 +5,7 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance { get; private set; }
     [SerializeField] PlayerMovement playerController;
     [SerializeField] Canvas gameOverCanvas, pauseCanvas;
+    [SerializeField] public GameObject[] items, enemies;
     bool isPaused = false;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()

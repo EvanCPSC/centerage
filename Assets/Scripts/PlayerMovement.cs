@@ -10,19 +10,25 @@ public class PlayerMovement : MonoBehaviour
     private float lastVertical;
     private float speed;
     private float health;
+    private bool isHit;
+    private float invulFrames;
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private GameObject pickaxePrefab;
     [SerializeField] private Transform firePoint;
     GameObject pickaxe = null;
     private Animator anim;
+    private SpriteRenderer spriteRenderer;
 
     void Start()
     {
+        isHit = false;
         speed = PlayerStats.playerSpeed;
         health = PlayerStats.playerHealth;
         anim = GetComponent<Animator>();
         lastHorizontal = 0;
         lastVertical = 0;
+        invulFrames = 0f;
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
@@ -31,6 +37,7 @@ public class PlayerMovement : MonoBehaviour
         horizontal = Input.GetAxisRaw("Horizontal");
         vertical = Input.GetAxisRaw("Vertical");
 
+        // change animation direction
         if (horizontal != 0 || vertical != 0)
         {
             anim.SetBool("isWalking", true);
@@ -45,11 +52,24 @@ public class PlayerMovement : MonoBehaviour
             anim.SetFloat("LastDirY", lastVertical);
         }
 
+        if (isHit) // invul frames
+        {
+            spriteRenderer.color = new Color(1f, invulFrames, invulFrames, 1f);
+            invulFrames += 0.01f;
+            if (invulFrames >= 1f)
+            {
+                invulFrames = 0f;
+                isHit = false;
+            }
+        }
+
+        // die
         if (health <= 0)
         {
             UnityEngine.SceneManagement.SceneManager.LoadScene(0);
         }
 
+        // inputs
         if (Input.GetButtonDown("Cancel"))
         {
             GameManager.Instance.PauseGame();
@@ -105,22 +125,22 @@ public class PlayerMovement : MonoBehaviour
     {
         if (trigger.gameObject.CompareTag("DoorL"))
         {
-            rb.position = new Vector2(rb.position.x - 4.5f, rb.position.y);
+            rb.position = new Vector2(rb.position.x - 4f, rb.position.y);
             Camera.main.transform.position = new Vector3(Camera.main.transform.position.x - 18f, Camera.main.transform.position.y, -10f);
         }
         if (trigger.gameObject.CompareTag("DoorR"))
         {
-            rb.position = new Vector2(rb.position.x + 4.5f, rb.position.y);
+            rb.position = new Vector2(rb.position.x + 4f, rb.position.y);
             Camera.main.transform.position = new Vector3(Camera.main.transform.position.x + 18f, Camera.main.transform.position.y, -10f);
         }
         if (trigger.gameObject.CompareTag("DoorT"))
         {
-            rb.position = new Vector2(rb.position.x, rb.position.y + 4.5f);
+            rb.position = new Vector2(rb.position.x, rb.position.y + 3.5f);
             Camera.main.transform.position = new Vector3(Camera.main.transform.position.x, Camera.main.transform.position.y + 10f, -10f);
         }
         if (trigger.gameObject.CompareTag("DoorB"))
         {
-            rb.position = new Vector2(rb.position.x, rb.position.y - 4.5f);
+            rb.position = new Vector2(rb.position.x, rb.position.y - 3.5f);
             Camera.main.transform.position = new Vector3(Camera.main.transform.position.x , Camera.main.transform.position.y - 10f, -10f);
         }
         if (trigger.gameObject.CompareTag("Exit"))
@@ -131,9 +151,10 @@ public class PlayerMovement : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Enemy"))
+        if (collision.gameObject.CompareTag("Enemy") && !isHit)
         {
             health -= 1f;
+            isHit = true;
         }
     }
 }

@@ -2,31 +2,36 @@ using UnityEngine;
 
 public class ItemManager : MonoBehaviour
 {
-    public string effect;
-    public float value;
+    public string[] effect;
+    public float[] value;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void GiveStat()
     {
-        switch (effect)
-        {
-            case "speed":
-                PlayerStats.playerSpeed += value;
-                break;
-            case "pickspeed":
-                PlayerStats.pickaxeSpeed += value;
-                break;
-            case "damage":
-                PlayerStats.pickaxeDamage += value;
-                break;
-            case "range":
-                PlayerStats.pickaxeRange += value;
-                break;
-            case "health":
-                PlayerStats.playerHealth += value;
-                break;
-            default:
-                break;
+        for (int i = 0; i < effect.Length; i ++) {
+            switch (effect[i])
+            {
+                case "speed":
+                    PlayerStats.playerSpeed += value[i];
+                    break;
+                case "pickspeed":
+                    PlayerStats.pickaxeSpeed += value[i];
+                    break;
+                case "damage":
+                    PlayerStats.pickaxeDamage += value[i];
+                    break;
+                case "damagemult":
+                    PlayerStats.pickaxeDamage *= value[i];
+                    break;
+                case "range":
+                    PlayerStats.pickaxeRange += value[i];
+                    break;
+                case "health":
+                    PlayerStats.playerHealth += value[i];
+                    break;
+                default:
+                    break;
+            }
         }
     }
 

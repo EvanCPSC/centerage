@@ -1,25 +1,59 @@
 using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class EnemyBehoulder : MonoBehaviour
 {
     public float health;
     public float speed;
+    private bool isHit;
+    private float hitFrames;
     [SerializeField] private Rigidbody2D rb;
-    [SerializeField] private Rigidbody2D playerRB;
+    private Rigidbody2D playerRB;
     private float horizontal;
     private float vertical;
+    private Animator anim;
+    private SpriteRenderer spriteRenderer;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        playerRB = GameObject.FindGameObjectWithTag("Player").GetComponent<Rigidbody2D>();
+        anim = GetComponent<Animator>();
+        isHit = false;
+        hitFrames = 0;
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        StartCoroutine(TrackPlayer(2f));
+        // movement
+        Invoke("TrackPlayer", 0.4f);
+
+        // change anim
+        if (horizontal == 0 && vertical == 0)
+        {
+            anim.SetFloat("DirX", 1);
+        } else
+        {
+            anim.SetFloat("DirX", horizontal);
+            anim.SetFloat("DirY", vertical);
+        }
+
+        // show hit
+        if (isHit)
+        {
+            spriteRenderer.color = new Color(1f, hitFrames, hitFrames, 1f);
+            hitFrames += 0.02f;
+            if (hitFrames >= 1f)
+            {
+                hitFrames = 0f;
+                isHit = false;
+            }
+        }
+
+        // die
         if (health <= 0)
         {
             Destroy(gameObject);
@@ -27,9 +61,8 @@ public class EnemyBehoulder : MonoBehaviour
 
     }
 
-    private IEnumerator TrackPlayer(float delay)
+    private void TrackPlayer()
     {
-        yield return new WaitForSeconds(delay);
         if (playerRB.position.x < rb.position.x)
         {
             horizontal = -1f;
@@ -59,6 +92,7 @@ public class EnemyBehoulder : MonoBehaviour
         if (collision.gameObject.CompareTag("Pickaxe"))
         {
             health -= PlayerStats.pickaxeDamage;
+            isHit = true;
         }
     }
 
