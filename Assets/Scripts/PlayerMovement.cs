@@ -8,8 +8,6 @@ public class PlayerMovement : MonoBehaviour
     private float vertical;
     private float lastHorizontal;
     private float lastVertical;
-    private float speed;
-    private float health;
     private bool isHit;
     private float invulFrames;
     [SerializeField] private Rigidbody2D rb;
@@ -18,17 +16,17 @@ public class PlayerMovement : MonoBehaviour
     GameObject pickaxe = null;
     private Animator anim;
     private SpriteRenderer spriteRenderer;
+    public AudioManager audioManager;
 
     void Start()
     {
         isHit = false;
-        speed = PlayerStats.playerSpeed;
-        health = PlayerStats.playerHealth;
         anim = GetComponent<Animator>();
         lastHorizontal = 0;
         lastVertical = 0;
         invulFrames = 0f;
         spriteRenderer = GetComponent<SpriteRenderer>();
+        audioManager = AudioManager.Instance;
     }
 
     // Update is called once per frame
@@ -64,7 +62,7 @@ public class PlayerMovement : MonoBehaviour
         }
 
         // die
-        if (health <= 0)
+        if (PlayerStats.playerHealth <= 0)
         {
             UnityEngine.SceneManagement.SceneManager.LoadScene(0);
         }
@@ -118,7 +116,7 @@ public class PlayerMovement : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        rb.linearVelocity = new Vector2(horizontal * speed, vertical * speed);
+        rb.linearVelocity = new Vector2(horizontal * PlayerStats.playerSpeed, vertical * PlayerStats.playerSpeed);
     }
 
     void OnTriggerEnter2D(Collider2D trigger)
@@ -153,7 +151,8 @@ public class PlayerMovement : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Enemy") && !isHit)
         {
-            health -= 1f;
+            PlayerStats.playerHealth -= 1f;
+            audioManager.PlaySFX(audioManager.sfxPlayerHit);
             isHit = true;
         }
     }

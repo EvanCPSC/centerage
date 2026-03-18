@@ -18,6 +18,7 @@ TagManager:
   - Item
   - GameManager
   - Floor
+  - Audio
   layers:
   - Default
   - TransparentFX

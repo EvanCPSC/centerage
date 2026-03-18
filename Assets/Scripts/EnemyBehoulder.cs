@@ -14,10 +14,13 @@ public class EnemyBehoulder : MonoBehaviour
     private float vertical;
     private Animator anim;
     private SpriteRenderer spriteRenderer;
+    public AudioManager audioManager;
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        audioManager = AudioManager.Instance;
         playerRB = GameObject.FindGameObjectWithTag("Player").GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         isHit = false;
@@ -93,6 +96,7 @@ public class EnemyBehoulder : MonoBehaviour
         {
             health -= PlayerStats.pickaxeDamage;
             isHit = true;
+            audioManager.PlaySFX(audioManager.sfxEnemyDie);
         }
     }
 

@@ -141,6 +141,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f08dee1d39bab514a8c221c5e51ca275, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+  itemName: Amethyst
   effect:
   - range
   value:

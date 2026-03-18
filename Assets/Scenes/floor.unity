@@ -119,6 +119,61 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &890510249
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 890510251}
+  - component: {fileID: 890510250}
+  m_Layer: 5
+  m_Name: UIDocument
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &890510250
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 890510249}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 19102, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.dll::UnityEngine.UIElements.UIDocument
+  m_PanelSettings: {fileID: 11400000, guid: cc33e48dd71d989478bec512c2bcfa09, type: 2}
+  m_ParentUI: {fileID: 0}
+  sourceAsset: {fileID: 0}
+  m_SortingOrder: 0
+  m_Position: 0
+  m_WorldSpaceSizeMode: 1
+  m_WorldSpaceWidth: 1920
+  m_WorldSpaceHeight: 1080
+  m_PivotReferenceSize: 0
+  m_Pivot: 0
+  m_WorldSpaceCollider: {fileID: 0}
+--- !u!4 &890510251
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 890510249}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &911008163
 GameObject:
   m_ObjectHideFlags: 0
@@ -333,11 +388,18 @@ MonoBehaviour:
   pauseCanvas: {fileID: 1911141249}
   items:
   - {fileID: 6673014061195395959, guid: 9a2ac95e4c44a194fa2b2b1c192cc838, type: 3}
+  - {fileID: 6673014061195395959, guid: 9a2ac95e4c44a194fa2b2b1c192cc838, type: 3}
+  - {fileID: 6673014061195395959, guid: ff8eb45bf60939247b03d662350e6826, type: 3}
   - {fileID: 6673014061195395959, guid: ff8eb45bf60939247b03d662350e6826, type: 3}
   - {fileID: 6673014061195395959, guid: c1d339f7f778ba043b1e3c43074723a1, type: 3}
+  - {fileID: 6673014061195395959, guid: c1d339f7f778ba043b1e3c43074723a1, type: 3}
+  - {fileID: 6673014061195395959, guid: 6b7858f35239d064facbbfbb30e4c324, type: 3}
   - {fileID: 6673014061195395959, guid: 6b7858f35239d064facbbfbb30e4c324, type: 3}
   - {fileID: 6673014061195395959, guid: 95e976b0b7dc27245a30b644f350b813, type: 3}
+  - {fileID: 6673014061195395959, guid: 95e976b0b7dc27245a30b644f350b813, type: 3}
   - {fileID: 6673014061195395959, guid: f2d169db63eed2d4c9c4f5047b0da781, type: 3}
+  - {fileID: 6673014061195395959, guid: f2d169db63eed2d4c9c4f5047b0da781, type: 3}
+  - {fileID: 6673014061195395959, guid: 350379c2d69aaf44fa446ed32329b65a, type: 3}
   enemies:
   - {fileID: 1778397954810383083, guid: dbbda2fe2d04137409ab8543b79ce89f, type: 3}
 --- !u!4 &1348552426
@@ -798,3 +860,4 @@ SceneRoots:
   - {fileID: 1226704721}
   - {fileID: 1911141250}
   - {fileID: 911008166}
+  - {fileID: 890510251}
