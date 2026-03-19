@@ -52,6 +52,7 @@
     <Compile Include="Assets\Scripts\SceneManager.cs" />
     <Compile Include="Assets\Scripts\SettingsController.cs" />
     <Compile Include="Assets\Scripts\AudioManager.cs" />
+    <Compile Include="Assets\Scripts\DisplayStats.cs" />
     <Compile Include="Assets\Scripts\SettingsDataObject.cs" />
     <Compile Include="Assets\Scripts\EnemyBehoulder.cs" />
     <Compile Include="Assets\Scripts\Room Gen\Destroyer.cs" />
@@ -60,6 +61,7 @@
     <Compile Include="Assets\Scripts\PickaxeProjectile.cs" />
     <Compile Include="Assets\Scripts\Room Gen\RoomTemplates.cs" />
     <Compile Include="Assets\Scripts\PlayerMovement.cs" />
+    <Compile Include="Assets\Scripts\EnemyHappimoss.cs" />
     <Compile Include="Assets\Scripts\RoomObjectManager.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />
     <Compile Include="Assets\Scripts\Room Gen\DoorSpawner.cs" />

@@ -36,28 +36,30 @@ public class PlayerMovement : MonoBehaviour
         vertical = Input.GetAxisRaw("Vertical");
 
         // change animation direction
-        if (horizontal != 0 || vertical != 0)
-        {
-            anim.SetBool("isWalking", true);
-            anim.SetFloat("InputX", horizontal);
-            anim.SetFloat("InputY", vertical);
-            lastHorizontal = horizontal;
-            lastVertical = vertical;
-        } else
-        {
-            anim.SetBool("isWalking", false);
-            anim.SetFloat("LastDirX", lastHorizontal);
-            anim.SetFloat("LastDirY", lastVertical);
-        }
-
-        if (isHit) // invul frames
-        {
-            spriteRenderer.color = new Color(1f, invulFrames, invulFrames, 1f);
-            invulFrames += 0.01f;
-            if (invulFrames >= 1f)
+        if (!GameManager.Instance.isPaused) {
+            if (horizontal != 0 || vertical != 0)
             {
-                invulFrames = 0f;
-                isHit = false;
+                anim.SetBool("isWalking", true);
+                anim.SetFloat("InputX", horizontal);
+                anim.SetFloat("InputY", vertical);
+                lastHorizontal = horizontal;
+                lastVertical = vertical;
+            } else
+            {
+                anim.SetBool("isWalking", false);
+                anim.SetFloat("LastDirX", lastHorizontal);
+                anim.SetFloat("LastDirY", lastVertical);
+            }
+
+            if (isHit) // invul frames
+            {
+                spriteRenderer.color = new Color(1f, invulFrames, invulFrames, 1f);
+                invulFrames += 0.01f;
+                if (invulFrames >= 1f)
+                {
+                    invulFrames = 0f;
+                    isHit = false;
+                }
             }
         }
 

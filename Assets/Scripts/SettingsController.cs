@@ -1,12 +1,14 @@
 using UnityEngine;
-using UnityEngine.UIElements;
+using UnityEngine.UI;
 using UnityEngine.Audio;
+using UnityEngine.SceneManagement;
+using System.Collections;
+using System.Collections.Generic;
 
 public class SettingsController : MonoBehaviour
 {
-    Slider _masterVolume, _musicVolume, _sfxVolume;
-    UIDocument _uidoc;
-    VisualElement _root;
+    public static SettingsController Instance { get; private set; }
+    public Slider _masterVolume, _musicVolume, _sfxVolume;
     [SerializeField]
     SettingsDataObject _settingsData;
     [SerializeField]
@@ -14,21 +16,28 @@ public class SettingsController : MonoBehaviour
 
     void Awake()
     {
-        _uidoc = GetComponent<UIDocument>();
-        _root = _uidoc.rootVisualElement;
-
-        _masterVolume = _root.Q<Slider>("sliderMaster");
-        _musicVolume = _root.Q<Slider>("sliderMusic");
-        _sfxVolume = _root.Q<Slider>("sliderSFX");
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+            _masterVolume = transform.Find("MasterSlider").GetComponent<Slider>();
+            _musicVolume = transform.Find("MusicSlider").GetComponent<Slider>();
+            _sfxVolume = transform.Find("SFXSlider").GetComponent<Slider>();
+        }
+        else
+        {
+            Destroy(gameObject);
+            return;
+        }
     }
 
     void Start()
     {
         LoadSettings();
         // Register callbacks
-        _masterVolume.RegisterValueChangedCallback(evt => SaveSettings());
-        _musicVolume.RegisterValueChangedCallback(evt => SaveSettings());
-        _sfxVolume.RegisterValueChangedCallback(evt => SaveSettings());
+        _masterVolume.onValueChanged.AddListener(delegate { SaveSettings(); });
+        _musicVolume.onValueChanged.AddListener(delegate { SaveSettings(); });
+        _sfxVolume.onValueChanged.AddListener(delegate { SaveSettings(); });
     }
 
     void LoadSettings()
@@ -60,4 +69,5 @@ public class SettingsController : MonoBehaviour
         _audioMixer.SetFloat("SFXVolume", Mathf.Log10((_settingsData.SFXVolume + .0001f) / 100) * 20);
         PlayerPrefs.Save();
     }
+
 }
