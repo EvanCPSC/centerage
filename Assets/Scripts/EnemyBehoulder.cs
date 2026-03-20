@@ -48,7 +48,7 @@ public class EnemyBehoulder : MonoBehaviour
         if (isHit)
         {
             spriteRenderer.color = new Color(1f, hitFrames, hitFrames, 1f);
-            hitFrames += 0.02f;
+            hitFrames += 0.1f;
             if (hitFrames >= 1f)
             {
                 hitFrames = 0f;

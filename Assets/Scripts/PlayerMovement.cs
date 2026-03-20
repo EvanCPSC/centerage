@@ -54,7 +54,7 @@ public class PlayerMovement : MonoBehaviour
             if (isHit) // invul frames
             {
                 spriteRenderer.color = new Color(1f, invulFrames, invulFrames, 1f);
-                invulFrames += 0.01f;
+                invulFrames += 0.05f;
                 if (invulFrames >= 1f)
                 {
                     invulFrames = 0f;

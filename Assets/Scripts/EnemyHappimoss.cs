@@ -20,7 +20,7 @@ public class EnemyHappimoss : MonoBehaviour
         isHit = false;
         hitFrames = 0;
         randX = Random.Range(-2, 3);
-        randY = Random.Range(-2, 3);
+        randY = Random.Range(-1, 2);
         transform.position = new Vector3(transform.position.x + randX, transform.position.y + randY, -3f);
     }
 
@@ -31,7 +31,7 @@ public class EnemyHappimoss : MonoBehaviour
         if (isHit)
         {
             spriteRenderer.color = new Color(1f, hitFrames, hitFrames, 1f);
-            hitFrames += 0.02f;
+            hitFrames += 0.1f;
             if (hitFrames >= 1f)
             {
                 hitFrames = 0f;
