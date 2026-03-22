@@ -125,22 +125,26 @@ public class PlayerMovement : MonoBehaviour
     {
         if (trigger.gameObject.CompareTag("DoorL"))
         {
-            rb.position = new Vector2(rb.position.x - 4f, rb.position.y);
+            if (pickaxe != null) Destroy(pickaxe);
+            rb.position = new Vector2(rb.position.x - 4.2f, rb.position.y);
             Camera.main.transform.position = new Vector3(Camera.main.transform.position.x - 18f, Camera.main.transform.position.y, -10f);
         }
         if (trigger.gameObject.CompareTag("DoorR"))
         {
-            rb.position = new Vector2(rb.position.x + 4f, rb.position.y);
+            if (pickaxe != null) Destroy(pickaxe);
+            rb.position = new Vector2(rb.position.x + 4.2f, rb.position.y);
             Camera.main.transform.position = new Vector3(Camera.main.transform.position.x + 18f, Camera.main.transform.position.y, -10f);
         }
         if (trigger.gameObject.CompareTag("DoorT"))
         {
-            rb.position = new Vector2(rb.position.x, rb.position.y + 3.5f);
+            if (pickaxe != null) Destroy(pickaxe);
+            rb.position = new Vector2(rb.position.x, rb.position.y + 3.6f);
             Camera.main.transform.position = new Vector3(Camera.main.transform.position.x, Camera.main.transform.position.y + 10f, -10f);
         }
+            if (pickaxe != null) Destroy(pickaxe);
         if (trigger.gameObject.CompareTag("DoorB"))
         {
-            rb.position = new Vector2(rb.position.x, rb.position.y - 3.5f);
+            rb.position = new Vector2(rb.position.x, rb.position.y - 3.6f);
             Camera.main.transform.position = new Vector3(Camera.main.transform.position.x , Camera.main.transform.position.y - 10f, -10f);
         }
         if (trigger.gameObject.CompareTag("Exit"))

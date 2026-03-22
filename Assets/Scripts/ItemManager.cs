@@ -24,7 +24,7 @@ public class ItemManager : MonoBehaviour
                     PlayerStats.playerSpeed += value[i];
                     break;
                 case "pickspeed":
-                    PlayerStats.pickaxeSpeed += value[i];
+                    PlayerStats.pickaxeForce += value[i];
                     break;
                 case "damage":
                     PlayerStats.pickaxeDamage += value[i];

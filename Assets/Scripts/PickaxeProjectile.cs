@@ -26,7 +26,7 @@ public class PickaxeProjectile : MonoBehaviour
         playerDir = playerRB.linearVelocity;
         throwDistance = PlayerStats.pickaxeRange;
         damage = PlayerStats.pickaxeDamage;
-        speed = PlayerStats.pickaxeSpeed;
+        speed = PlayerStats.pickaxeForce;
         PlayerStats.pickaxeReturning = false;
         // ----
     }

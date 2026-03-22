@@ -7,6 +7,7 @@ public class RoomObjectManager : MonoBehaviour
     GameManager gameManager;
     public bool spawned;
     private int rand;
+    public List<GameObject> doors;
     void Start()
     {
         spawned = false;
@@ -36,6 +37,18 @@ public class RoomObjectManager : MonoBehaviour
         {
             SpawnObject();
             spawned = true;
+        }
+        if (other.gameObject.CompareTag("Enemy"))
+        {
+            gameManager.CloseRoom(doors);
+        }
+    }
+
+    void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.gameObject.CompareTag("Enemy"))
+        {
+            gameManager.OpenRoom(doors);
         }
     }
 }

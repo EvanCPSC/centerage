@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] Canvas pauseCanvas;
     [SerializeField] public GameObject[] items, enemies;
     public bool isPaused = false;
+    public bool roomCleared = true;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -58,6 +59,22 @@ public class GameManager : MonoBehaviour
             Time.timeScale = 0;
             pauseCanvas.gameObject.SetActive(true);
             isPaused = true;
+        }
+    }
+
+    public void CloseRoom(List<GameObject> doors)
+    {
+        foreach (GameObject door in doors) {
+            door.GetComponent<Animator>().SetBool("isOpen", false);
+            door.GetComponent<Collider2D>().isTrigger = false;
+        }
+    }
+
+    public void OpenRoom(List<GameObject> doors)
+    {
+        foreach (GameObject door in doors) {
+            door.GetComponent<Animator>().SetBool("isOpen", true);
+            door.GetComponent<Collider2D>().isTrigger = true;
         }
     }
 }

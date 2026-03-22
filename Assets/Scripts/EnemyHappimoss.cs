@@ -10,6 +10,7 @@ public class EnemyHappimoss : MonoBehaviour
     private SpriteRenderer spriteRenderer;
     public AudioManager audioManager;
     private int randX, randY;
+    [SerializeField] private Rigidbody2D rb;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created

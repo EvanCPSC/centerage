@@ -5,6 +5,24 @@ TextureImporter:
   - first:
       213: 3414929692500272995
     second: ctrg_happimoss_blink_0
+  - first:
+      213: 6522833311665124510
+    second: ctrg_happimoss_blink_1
+  - first:
+      213: -651656308242655961
+    second: ctrg_happimoss_blink_2
+  - first:
+      213: -5361471573602861689
+    second: ctrg_happimoss_blink_3
+  - first:
+      213: 6902878472116436769
+    second: ctrg_happimoss_blink_4
+  - first:
+      213: 385439875239920214
+    second: ctrg_happimoss_blink_5
+  - first:
+      213: 8495822327296390362
+    second: ctrg_happimoss_blink_6
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -116,12 +134,12 @@ TextureImporter:
       name: ctrg_happimoss_blink_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 160
-        height: 160
+        x: 4
+        y: 4
+        width: 152
+        height: 152
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -138,20 +156,20 @@ TextureImporter:
       name: ctrg_happimoss_blink_1
       rect:
         serializedVersion: 2
-        x: 160
-        y: 0
-        width: 160
-        height: 160
+        x: 164
+        y: 4
+        width: 152
+        height: 152
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: fcb2f50d9fdc54f40a578f35627d4f50
-      internalID: -114219060
+      spriteID: e9472e66652c58a50800000000000000
+      internalID: 6522833311665124510
       vertices: []
       indices: 
       edges: []
@@ -160,20 +178,20 @@ TextureImporter:
       name: ctrg_happimoss_blink_2
       rect:
         serializedVersion: 2
-        x: 320
-        y: 0
-        width: 160
-        height: 160
+        x: 324
+        y: 4
+        width: 152
+        height: 152
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 17d193a28f9bd7d499ff1e6d588ccba3
-      internalID: -1178686787
+      spriteID: 725dd8f4a0ad4f6f0800000000000000
+      internalID: -651656308242655961
       vertices: []
       indices: 
       edges: []
@@ -182,20 +200,20 @@ TextureImporter:
       name: ctrg_happimoss_blink_3
       rect:
         serializedVersion: 2
-        x: 480
-        y: 0
-        width: 160
-        height: 160
+        x: 484
+        y: 4
+        width: 152
+        height: 152
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 27188980ce4e2a44d89f55efc655ee45
-      internalID: 243200747
+      spriteID: 78dfb06920a3895b0800000000000000
+      internalID: -5361471573602861689
       vertices: []
       indices: 
       edges: []
@@ -204,20 +222,20 @@ TextureImporter:
       name: ctrg_happimoss_blink_4
       rect:
         serializedVersion: 2
-        x: 640
-        y: 0
-        width: 160
-        height: 160
+        x: 644
+        y: 4
+        width: 152
+        height: 152
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 544b46afb664708438befb38937060b7
-      internalID: 1893884372
+      spriteID: 12ff03ab563fbcf50800000000000000
+      internalID: 6902878472116436769
       vertices: []
       indices: 
       edges: []
@@ -226,20 +244,42 @@ TextureImporter:
       name: ctrg_happimoss_blink_5
       rect:
         serializedVersion: 2
-        x: 800
-        y: 0
-        width: 160
-        height: 160
+        x: 804
+        y: 4
+        width: 152
+        height: 152
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: abb3d3f2128e11146b86619cee71f885
-      internalID: -466116765
+      spriteID: 65242fd368b595500800000000000000
+      internalID: 385439875239920214
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ctrg_happimoss_blink_6
+      rect:
+        serializedVersion: 2
+        x: 964
+        y: 4
+        width: 152
+        height: 152
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ad47555d46937e570800000000000000
+      internalID: 8495822327296390362
       vertices: []
       indices: 
       edges: []
@@ -248,7 +288,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 6ec20b3693f88ab4da914bb66d3f8b98
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -256,16 +296,15 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries:
-      - key: SpriteEditor.SliceSettings
-        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":160.0,"y":160.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
+      entries: []
     nameFileIdTable:
       ctrg_happimoss_blink_0: 3414929692500272995
-      ctrg_happimoss_blink_1: -114219060
-      ctrg_happimoss_blink_2: -1178686787
-      ctrg_happimoss_blink_3: 243200747
-      ctrg_happimoss_blink_4: 1893884372
-      ctrg_happimoss_blink_5: -466116765
+      ctrg_happimoss_blink_1: 6522833311665124510
+      ctrg_happimoss_blink_2: -651656308242655961
+      ctrg_happimoss_blink_3: -5361471573602861689
+      ctrg_happimoss_blink_4: 6902878472116436769
+      ctrg_happimoss_blink_5: 385439875239920214
+      ctrg_happimoss_blink_6: 8495822327296390362
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
