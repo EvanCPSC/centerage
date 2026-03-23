@@ -4,28 +4,20 @@ using System.Collections.Generic;
 
 public class EnemyBehoulder : MonoBehaviour
 {
-    public float health;
     public float speed;
-    private bool isHit;
-    private float hitFrames;
     [SerializeField] private Rigidbody2D rb;
     private Rigidbody2D playerRB;
     private float horizontal;
     private float vertical;
     private Animator anim;
-    private SpriteRenderer spriteRenderer;
-    public AudioManager audioManager;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        audioManager = AudioManager.Instance;
         playerRB = GameObject.FindGameObjectWithTag("Player").GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
-        isHit = false;
-        hitFrames = 0;
-        spriteRenderer = GetComponent<SpriteRenderer>();
+        speed = gameObject.GetComponent<EnemyManager>().speed;
     }
 
     // Update is called once per frame
@@ -42,24 +34,6 @@ public class EnemyBehoulder : MonoBehaviour
         {
             anim.SetFloat("DirX", horizontal);
             anim.SetFloat("DirY", vertical);
-        }
-
-        // show hit
-        if (isHit)
-        {
-            spriteRenderer.color = new Color(1f, hitFrames, hitFrames, 1f);
-            hitFrames += 0.1f;
-            if (hitFrames >= 1f)
-            {
-                hitFrames = 0f;
-                isHit = false;
-            }
-        }
-
-        // die
-        if (health <= 0)
-        {
-            Destroy(gameObject);
         }
 
     }
@@ -87,17 +61,6 @@ public class EnemyBehoulder : MonoBehaviour
     private void FixedUpdate()
     {
         rb.linearVelocity = new Vector2(horizontal * speed, vertical * speed);
-    }
-
-
-    void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.CompareTag("Pickaxe"))
-        {
-            health -= PlayerStats.pickaxeDamage;
-            isHit = true;
-            audioManager.PlaySFX(audioManager.sfxEnemyDie);
-        }
     }
 
 }

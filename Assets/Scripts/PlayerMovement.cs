@@ -10,6 +10,7 @@ public class PlayerMovement : MonoBehaviour
     private float lastVertical;
     private bool isHit;
     private float invulFrames;
+    public float throwDelay;
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private GameObject pickaxePrefab;
     [SerializeField] private Transform firePoint;
@@ -25,6 +26,7 @@ public class PlayerMovement : MonoBehaviour
         lastHorizontal = 0;
         lastVertical = 0;
         invulFrames = 0f;
+        throwDelay = 0f;
         spriteRenderer = GetComponent<SpriteRenderer>();
         audioManager = AudioManager.Instance;
     }
@@ -75,44 +77,64 @@ public class PlayerMovement : MonoBehaviour
             GameManager.Instance.PauseGame();
         }
 
-        if(Input.GetButtonDown("FireL") && pickaxe == null)
-        {
-            // From Pickaxe Projectile
-            pickaxe = Instantiate(pickaxePrefab, firePoint.position, firePoint.rotation);
-            PickaxeProjectile pickaxeScript = pickaxe.GetComponent<PickaxeProjectile>();
-            if (pickaxeScript != null)
+        if (throwDelay <= 0) {
+            if(Input.GetButtonDown("FireL") && pickaxe == null)
             {
-                pickaxeScript.dir = 'L';
+                // From Pickaxe Projectile
+                pickaxe = Instantiate(pickaxePrefab, firePoint.position, firePoint.rotation);
+                PickaxeProjectile pickaxeScript = pickaxe.GetComponent<PickaxeProjectile>();
+                if (pickaxeScript != null)
+                {
+                    pickaxeScript.dir = 'L';
+                }
+                throwDelay = 1f;
             }
-        }
-        if(Input.GetButtonDown("FireR") && pickaxe == null)
-        {
-            // From Pickaxe Projectile
-            pickaxe = Instantiate(pickaxePrefab, firePoint.position, firePoint.rotation);
-            PickaxeProjectile pickaxeScript = pickaxe.GetComponent<PickaxeProjectile>();
-            if (pickaxeScript != null)
+            if(Input.GetButtonDown("FireR") && pickaxe == null)
             {
-                pickaxeScript.dir = 'R';
+                // From Pickaxe Projectile
+                pickaxe = Instantiate(pickaxePrefab, firePoint.position, firePoint.rotation);
+                PickaxeProjectile pickaxeScript = pickaxe.GetComponent<PickaxeProjectile>();
+                if (pickaxeScript != null)
+                {
+                    pickaxeScript.dir = 'R';
+                }
+                throwDelay = 1f;
             }
-        }
-        if(Input.GetButtonDown("FireU") && pickaxe == null)
-        {
-            // From Pickaxe Projectile
-            pickaxe = Instantiate(pickaxePrefab, firePoint.position, firePoint.rotation);
-            PickaxeProjectile pickaxeScript = pickaxe.GetComponent<PickaxeProjectile>();
-            if (pickaxeScript != null)
+            if(Input.GetButtonDown("FireU") && pickaxe == null)
             {
-                pickaxeScript.dir = 'U';
+                // From Pickaxe Projectile
+                pickaxe = Instantiate(pickaxePrefab, firePoint.position, firePoint.rotation);
+                PickaxeProjectile pickaxeScript = pickaxe.GetComponent<PickaxeProjectile>();
+                if (pickaxeScript != null)
+                {
+                    pickaxeScript.dir = 'U';
+                }
+                throwDelay = 1f;
             }
-        }
-        if(Input.GetButtonDown("FireD") && pickaxe == null)
-        {
-            // From Pickaxe Projectile
-            pickaxe = Instantiate(pickaxePrefab, firePoint.position, firePoint.rotation);
-            PickaxeProjectile pickaxeScript = pickaxe.GetComponent<PickaxeProjectile>();
-            if (pickaxeScript != null)
+            if(Input.GetButtonDown("FireD") && pickaxe == null)
             {
-                pickaxeScript.dir = 'D';
+                // From Pickaxe Projectile
+                pickaxe = Instantiate(pickaxePrefab, firePoint.position, firePoint.rotation);
+                PickaxeProjectile pickaxeScript = pickaxe.GetComponent<PickaxeProjectile>();
+                if (pickaxeScript != null)
+                {
+                    pickaxeScript.dir = 'D';
+                }
+                throwDelay = 1f;
+            }
+        } else
+        {
+            throwDelay -= 0.1f;
+        }
+
+        // dioptase trigger
+        if (PlayerStats.dioptase && !PlayerStats.dioptaseUsed)
+        {
+            if (Input.GetButtonDown("Jump") && pickaxe != null)
+            {
+                rb.position = pickaxe.GetComponent<Rigidbody2D>().position;
+                PlayerStats.dioptaseUsed = true; // once per room, resets when door touched
+                Destroy(pickaxe);
             }
         }
     }
@@ -126,24 +148,28 @@ public class PlayerMovement : MonoBehaviour
         if (trigger.gameObject.CompareTag("DoorL"))
         {
             if (pickaxe != null) Destroy(pickaxe);
+            PlayerStats.dioptaseUsed = false;
             rb.position = new Vector2(rb.position.x - 4.2f, rb.position.y);
             Camera.main.transform.position = new Vector3(Camera.main.transform.position.x - 18f, Camera.main.transform.position.y, -10f);
         }
         if (trigger.gameObject.CompareTag("DoorR"))
         {
             if (pickaxe != null) Destroy(pickaxe);
+            PlayerStats.dioptaseUsed = false;
             rb.position = new Vector2(rb.position.x + 4.2f, rb.position.y);
             Camera.main.transform.position = new Vector3(Camera.main.transform.position.x + 18f, Camera.main.transform.position.y, -10f);
         }
         if (trigger.gameObject.CompareTag("DoorT"))
         {
             if (pickaxe != null) Destroy(pickaxe);
+            PlayerStats.dioptaseUsed = false;
             rb.position = new Vector2(rb.position.x, rb.position.y + 3.6f);
             Camera.main.transform.position = new Vector3(Camera.main.transform.position.x, Camera.main.transform.position.y + 10f, -10f);
         }
-            if (pickaxe != null) Destroy(pickaxe);
         if (trigger.gameObject.CompareTag("DoorB"))
         {
+            if (pickaxe != null) Destroy(pickaxe);
+            PlayerStats.dioptaseUsed = false;
             rb.position = new Vector2(rb.position.x, rb.position.y - 3.6f);
             Camera.main.transform.position = new Vector3(Camera.main.transform.position.x , Camera.main.transform.position.y - 10f, -10f);
         }
@@ -160,6 +186,10 @@ public class PlayerMovement : MonoBehaviour
             PlayerStats.playerHealth -= 1f;
             audioManager.PlaySFX(audioManager.sfxPlayerHit);
             isHit = true;
+            if (PlayerStats.labradorite)
+            {
+                collision.gameObject.GetComponent<EnemyManager>().HitEnemy(PlayerStats.pickaxeDamage / 10f);
+            }
         }
     }
 }

@@ -4,6 +4,7 @@ using System.Collections.Generic;
 
 public static class PlayerStats
 {
+    // stats (player stats and game states)
     public static bool isPaused = false;
     public static float playerSpeed = 5f;
     public static float playerHealth = 6f;
@@ -28,5 +29,18 @@ public static class PlayerStats
         pickaxeReturning = false;
         playerItems = new List<string>();
         isPaused = false;
+        SetDefaultItemBools();
+    }
+
+    // item bools (if they have a certain item or not)
+    public static bool dioptase = false;
+    public static bool dioptaseUsed = false;
+    public static bool labradorite = false;
+
+    public static void SetDefaultItemBools()
+    {
+        dioptase = false;
+        dioptaseUsed = false;
+        labradorite = false;
     }
 }

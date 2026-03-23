@@ -142,7 +142,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   itemName: Quartz
+  itemDesc: Health up
+  quality: 1
   effect:
   - health
   value:
   - 2
+  audioManager: {fileID: 0}

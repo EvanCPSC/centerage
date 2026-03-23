@@ -142,7 +142,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   itemName: Sapphire
+  itemDesc: Speed up
+  quality: 2
   effect:
   - speed
   value:
   - 1
+  audioManager: {fileID: 0}

@@ -6,8 +6,10 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
     [SerializeField] PlayerMovement playerController;
-    [SerializeField] Canvas pauseCanvas;
+    [SerializeField] Canvas pauseCanvas, itemGetCanvas;
     [SerializeField] public GameObject[] items, enemies;
+    public List<GameObject> pooledItems;
+    public List<GameObject> weightedItems;
     public bool isPaused = false;
     public bool roomCleared = true;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -22,6 +24,12 @@ public class GameManager : MonoBehaviour
         }
         pauseCanvas.gameObject.SetActive(false);
         //gameOverCanvas.gameObject.SetActive(false);
+        pooledItems = new List<GameObject>();
+        foreach (GameObject item in items)
+        {
+            pooledItems.Add(item);
+        }
+        WeighItems();
     }
 
     // Update is called once per frame
@@ -76,5 +84,30 @@ public class GameManager : MonoBehaviour
             door.GetComponent<Animator>().SetBool("isOpen", true);
             door.GetComponent<Collider2D>().isTrigger = true;
         }
+    }
+
+    public void WeighItems()
+    {
+        weightedItems = new List<GameObject>();
+        foreach (GameObject item in pooledItems)
+        {
+            for (int i = 0; i < 5 - item.GetComponent<ItemManager>().quality; i++) // add items 5 - quality amount of times
+            {
+                weightedItems.Add(item);
+            }
+        }
+    }
+
+    public void ShowItemGet(string name, string description)
+    {
+        itemGetCanvas.GetComponent<ItemGetCanvasManager>().item = name;
+        itemGetCanvas.GetComponent<ItemGetCanvasManager>().desc = description;
+        itemGetCanvas.gameObject.SetActive(true);
+        Invoke("DisableItemGet", 2.5f);
+    }
+
+    private void DisableItemGet()
+    {
+        itemGetCanvas.gameObject.SetActive(false);
     }
 }

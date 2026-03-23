@@ -142,7 +142,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   itemName: Emerald
+  itemDesc: Health up
+  quality: 2
   effect:
   - health
   value:
   - 4
+  audioManager: {fileID: 0}

@@ -16,13 +16,15 @@ public class PickaxeProjectile : MonoBehaviour
     public float throwDistance; // Max distance before returning
     private Vector2 startPosition;
     private Transform playerTransform; // Reference to the player's transform
+    private GameObject playerObj;
 
     void Start()
     {
         startPosition = transform.position;
-        playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
+        playerObj = GameObject.FindGameObjectWithTag("Player");
+        playerTransform = playerObj.transform;
         // ----
-        playerRB = GameObject.FindGameObjectWithTag("Player").GetComponent<Rigidbody2D>();
+        playerRB = playerObj.GetComponent<Rigidbody2D>();
         playerDir = playerRB.linearVelocity;
         throwDistance = PlayerStats.pickaxeRange;
         damage = PlayerStats.pickaxeDamage;
@@ -103,6 +105,7 @@ public class PickaxeProjectile : MonoBehaviour
             // Check if it's back to the player
             if (Vector2.Distance(transform.position, playerTransform.position) < 0.5f)
             {
+                playerObj.GetComponent<PlayerMovement>().throwDelay = 1f;
                 Destroy(gameObject);
             }
             

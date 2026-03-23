@@ -142,7 +142,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   itemName: Topaz
+  itemDesc: Force up
+  quality: 2
   effect:
-  - pickspeed
+  - force
   value:
   - 1
+  audioManager: {fileID: 0}

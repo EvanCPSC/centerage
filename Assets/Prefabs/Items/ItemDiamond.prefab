@@ -142,10 +142,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   itemName: Diamond
+  itemDesc: All stats up
+  quality: 4
   effect:
   - speed
   - health
-  - pickspeed
+  - force
   - range
   - damagemult
   value:
@@ -154,3 +156,4 @@ MonoBehaviour:
   - 0.5
   - 1.5
   - 1.5
+  audioManager: {fileID: 0}

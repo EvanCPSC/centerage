@@ -142,6 +142,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   itemName: Ruby
+  itemDesc: Damage up
+  quality: 2
   effect:
   - damage
   value:

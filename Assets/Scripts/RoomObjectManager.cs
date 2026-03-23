@@ -19,9 +19,11 @@ public class RoomObjectManager : MonoBehaviour
         rand = Random.Range(0, 10);
         if (rand < 2) // spawn item
         {
-            rand = Random.Range(0, gameManager.items.Length);
-            Instantiate(gameManager.items[rand], new Vector3(transform.position.x, transform.position.y, -3f), Quaternion.identity);
-        } else if (rand < 8) // spawn enemy
+            rand = Random.Range(0, gameManager.weightedItems.Count);
+            Instantiate(gameManager.weightedItems[rand], new Vector3(transform.position.x, transform.position.y, -3f), Quaternion.identity);
+            gameManager.pooledItems.Remove(gameManager.weightedItems[rand]);
+            Invoke("ReweighItems", 0.2f);
+        } else if (rand < 9) // spawn enemy
         {
             rand = Random.Range(0, gameManager.enemies.Length);
             Instantiate(gameManager.enemies[rand], new Vector3(transform.position.x, transform.position.y, -3f), Quaternion.identity);
@@ -29,6 +31,11 @@ public class RoomObjectManager : MonoBehaviour
         {
             
         }
+    }
+
+    void ReweighItems()
+    {
+        gameManager.WeighItems();
     }
 
     void OnTriggerEnter2D(Collider2D other)

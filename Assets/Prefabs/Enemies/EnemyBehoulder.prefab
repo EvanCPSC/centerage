@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 5767170092132575972}
   - component: {fileID: 1655735713679430864}
   - component: {fileID: 8615016339433172264}
+  - component: {fileID: -8934740531776618649}
   m_Layer: 8
   m_Name: EnemyBehoulder
   m_TagString: Enemy
@@ -170,10 +171,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9b6f2ef73704084fbbea7657f62ebd6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  health: 10
-  speed: 2
+  speed: 0
   rb: {fileID: 5767170092132575972}
-  playerRB: {fileID: 4960589382565113372, guid: ded4f126f2e87cb468c2d634a4d33cf9, type: 3}
 --- !u!95 &8615016339433172264
 Animator:
   serializedVersion: 7
@@ -196,3 +195,18 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &-8934740531776618649
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1778397954810383083}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36c90be19fb40ad4dac0898ba9c5452a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyManager
+  health: 10
+  speed: 2
+  audioManager: {fileID: 0}
