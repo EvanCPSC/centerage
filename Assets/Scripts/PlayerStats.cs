@@ -12,6 +12,7 @@ public static class PlayerStats
     public static float pickaxeDamage = 3.5f;
     public static float pickaxeRange = 4f;
     public static bool pickaxeReturning = false;
+    public static bool pickaxeRetrieved = false;
     public static List<string> playerItems = new List<string>(); // for later implementation
     private static float defPlayerSpeed = 5f;
     private static float defPlayerHealth = 6f;
@@ -36,11 +37,16 @@ public static class PlayerStats
     public static bool dioptase = false;
     public static bool dioptaseUsed = false;
     public static bool labradorite = false;
+    public static bool pearl = false;
+    public static bool pearlAlt = false;
+    public static float pearlRange = 0.2f; // const
 
     public static void SetDefaultItemBools()
     {
         dioptase = false;
         dioptaseUsed = false;
         labradorite = false;
+        pearl = false;
+        pearlAlt = false;
     }
 }

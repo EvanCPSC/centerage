@@ -13,8 +13,10 @@ public class PlayerMovement : MonoBehaviour
     public float throwDelay;
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private GameObject pickaxePrefab;
+    [SerializeField] private GameObject pearlPrefab;
     [SerializeField] private Transform firePoint;
     GameObject pickaxe = null;
+    GameObject pearlProjectile = null;
     private Animator anim;
     private SpriteRenderer spriteRenderer;
     public AudioManager audioManager;
@@ -80,46 +82,26 @@ public class PlayerMovement : MonoBehaviour
         if (throwDelay <= 0) {
             if(Input.GetButtonDown("FireL") && pickaxe == null)
             {
-                // From Pickaxe Projectile
-                pickaxe = Instantiate(pickaxePrefab, firePoint.position, firePoint.rotation);
-                PickaxeProjectile pickaxeScript = pickaxe.GetComponent<PickaxeProjectile>();
-                if (pickaxeScript != null)
-                {
-                    pickaxeScript.dir = 'L';
-                }
+                ThrowPickaxe('L');
+                if (PlayerStats.pearl) ThrowPearl('L');
                 throwDelay = 1f;
             }
             if(Input.GetButtonDown("FireR") && pickaxe == null)
             {
-                // From Pickaxe Projectile
-                pickaxe = Instantiate(pickaxePrefab, firePoint.position, firePoint.rotation);
-                PickaxeProjectile pickaxeScript = pickaxe.GetComponent<PickaxeProjectile>();
-                if (pickaxeScript != null)
-                {
-                    pickaxeScript.dir = 'R';
-                }
+                ThrowPickaxe('R');
+                if (PlayerStats.pearl) ThrowPearl('R');
                 throwDelay = 1f;
             }
             if(Input.GetButtonDown("FireU") && pickaxe == null)
             {
-                // From Pickaxe Projectile
-                pickaxe = Instantiate(pickaxePrefab, firePoint.position, firePoint.rotation);
-                PickaxeProjectile pickaxeScript = pickaxe.GetComponent<PickaxeProjectile>();
-                if (pickaxeScript != null)
-                {
-                    pickaxeScript.dir = 'U';
-                }
+                ThrowPickaxe('U');
+                if (PlayerStats.pearl) ThrowPearl('U');
                 throwDelay = 1f;
             }
             if(Input.GetButtonDown("FireD") && pickaxe == null)
             {
-                // From Pickaxe Projectile
-                pickaxe = Instantiate(pickaxePrefab, firePoint.position, firePoint.rotation);
-                PickaxeProjectile pickaxeScript = pickaxe.GetComponent<PickaxeProjectile>();
-                if (pickaxeScript != null)
-                {
-                    pickaxeScript.dir = 'D';
-                }
+                ThrowPickaxe('D');
+                if (PlayerStats.pearl) ThrowPearl('D');
                 throwDelay = 1f;
             }
         } else
@@ -135,6 +117,7 @@ public class PlayerMovement : MonoBehaviour
                 rb.position = pickaxe.GetComponent<Rigidbody2D>().position;
                 PlayerStats.dioptaseUsed = true; // once per room, resets when door touched
                 Destroy(pickaxe);
+                if (pearlProjectile != null) Destroy(pearlProjectile);
             }
         }
     }
@@ -143,11 +126,33 @@ public class PlayerMovement : MonoBehaviour
         rb.linearVelocity = new Vector2(horizontal * PlayerStats.playerSpeed, vertical * PlayerStats.playerSpeed);
     }
 
+    private void ThrowPickaxe(char dirc)
+    {
+        // From Pickaxe Projectile
+        pickaxe = Instantiate(pickaxePrefab, firePoint.position, firePoint.rotation);
+        PickaxeProjectile pickaxeScript = pickaxe.GetComponent<PickaxeProjectile>();
+        if (pickaxeScript != null)
+        {
+            pickaxeScript.dir = dirc;
+        }
+    }
+    
+    private void ThrowPearl(char dirc)
+    {
+        pearlProjectile = Instantiate(pearlPrefab, firePoint.position, firePoint.rotation);
+        ProjectilePearl pearlScript = pearlProjectile.GetComponent<ProjectilePearl>();
+        if (pearlScript != null)
+        {
+            pearlScript.dir = dirc;
+        }
+    }
+
     void OnTriggerEnter2D(Collider2D trigger)
     {
         if (trigger.gameObject.CompareTag("DoorL"))
         {
             if (pickaxe != null) Destroy(pickaxe);
+            if (pearlProjectile != null) Destroy(pearlProjectile);
             PlayerStats.dioptaseUsed = false;
             rb.position = new Vector2(rb.position.x - 4.2f, rb.position.y);
             Camera.main.transform.position = new Vector3(Camera.main.transform.position.x - 18f, Camera.main.transform.position.y, -10f);
@@ -155,6 +160,7 @@ public class PlayerMovement : MonoBehaviour
         if (trigger.gameObject.CompareTag("DoorR"))
         {
             if (pickaxe != null) Destroy(pickaxe);
+            if (pearlProjectile != null) Destroy(pearlProjectile);
             PlayerStats.dioptaseUsed = false;
             rb.position = new Vector2(rb.position.x + 4.2f, rb.position.y);
             Camera.main.transform.position = new Vector3(Camera.main.transform.position.x + 18f, Camera.main.transform.position.y, -10f);
@@ -162,6 +168,7 @@ public class PlayerMovement : MonoBehaviour
         if (trigger.gameObject.CompareTag("DoorT"))
         {
             if (pickaxe != null) Destroy(pickaxe);
+            if (pearlProjectile != null) Destroy(pearlProjectile);
             PlayerStats.dioptaseUsed = false;
             rb.position = new Vector2(rb.position.x, rb.position.y + 3.6f);
             Camera.main.transform.position = new Vector3(Camera.main.transform.position.x, Camera.main.transform.position.y + 10f, -10f);
@@ -169,6 +176,7 @@ public class PlayerMovement : MonoBehaviour
         if (trigger.gameObject.CompareTag("DoorB"))
         {
             if (pickaxe != null) Destroy(pickaxe);
+            if (pearlProjectile != null) Destroy(pearlProjectile);
             PlayerStats.dioptaseUsed = false;
             rb.position = new Vector2(rb.position.x, rb.position.y - 3.6f);
             Camera.main.transform.position = new Vector3(Camera.main.transform.position.x , Camera.main.transform.position.y - 10f, -10f);

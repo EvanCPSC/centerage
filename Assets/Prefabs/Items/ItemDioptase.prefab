@@ -143,7 +143,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   itemName: Dioptase
   itemDesc: Press Space to Jump
-  quality: 3
+  quality: 4
   effect:
   - force
   - range

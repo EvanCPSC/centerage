@@ -51,6 +51,7 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\SceneManager.cs" />
     <Compile Include="Assets\Scripts\SettingsController.cs" />
+    <Compile Include="Assets\Scripts\ProjectilePearl.cs" />
     <Compile Include="Assets\Scripts\EnemyManager.cs" />
     <Compile Include="Assets\Scripts\AudioManager.cs" />
     <Compile Include="Assets\Scripts\DisplayStats.cs" />

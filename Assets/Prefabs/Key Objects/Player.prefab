@@ -171,9 +171,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d85f77c95ff8ac24a978ebacaff6c3e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+  throwDelay: 0
   rb: {fileID: 4960589382565113372}
   pickaxePrefab: {fileID: 2769734730288082402, guid: ed2449ee107ab5040b6e325ac98e76b2, type: 3}
+  pearlPrefab: {fileID: 2769734730288082402, guid: 27535f2478432d9428e00d2b03eb2589, type: 3}
   firePoint: {fileID: 5788463910930404578}
+  audioManager: {fileID: 0}
 --- !u!95 &5186246363921879110
 Animator:
   serializedVersion: 7

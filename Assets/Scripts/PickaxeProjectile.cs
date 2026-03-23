@@ -9,7 +9,6 @@ public class PickaxeProjectile : MonoBehaviour
     public char dir = ' ';
     private Rigidbody2D playerRB;
     private Vector2 playerDir;
-    public float damage;
     // AI Mode. "unity throw boomerang through player 2d", Google, 24 Feb. 2026, https://share.google/aimode/flPMVYw6VFeF3V5jw.
     // ------------
     public float speed;
@@ -17,6 +16,7 @@ public class PickaxeProjectile : MonoBehaviour
     private Vector2 startPosition;
     private Transform playerTransform; // Reference to the player's transform
     private GameObject playerObj;
+    public float pearlYRange;
 
     void Start()
     {
@@ -27,9 +27,20 @@ public class PickaxeProjectile : MonoBehaviour
         playerRB = playerObj.GetComponent<Rigidbody2D>();
         playerDir = playerRB.linearVelocity;
         throwDistance = PlayerStats.pickaxeRange;
-        damage = PlayerStats.pickaxeDamage;
         speed = PlayerStats.pickaxeForce;
         PlayerStats.pickaxeReturning = false;
+        PlayerStats.pickaxeRetrieved = false;
+        if (PlayerStats.pearl)
+        {
+            pearlYRange = PlayerStats.pearlRange;
+        } else
+        {
+            pearlYRange = 0f;
+        }
+        if (PlayerStats.pearlAlt)
+        {
+            pearlYRange *= -1f;
+        }
         // ----
     }
 
@@ -49,7 +60,7 @@ public class PickaxeProjectile : MonoBehaviour
                     {
                         throwDistance += 1f;
                     }
-                    transform.Translate(Vector2.left * speed * Time.deltaTime);
+                    transform.Translate(new Vector2(-1f * speed * Time.deltaTime, pearlYRange * speed * Time.deltaTime));
                     break;
                 case 'R':
                     if (playerDir.x > 0f)
@@ -59,7 +70,7 @@ public class PickaxeProjectile : MonoBehaviour
                     {
                         throwDistance -= 1f;
                     }
-                    transform.Translate(Vector2.right * speed * Time.deltaTime);
+                    transform.Translate(new Vector2(1f * speed * Time.deltaTime, pearlYRange * speed * Time.deltaTime));
                     break;
                 case 'U':
                     if (playerDir.y > 0f)
@@ -69,7 +80,7 @@ public class PickaxeProjectile : MonoBehaviour
                     {
                         throwDistance -= 1f;
                     }
-                    transform.Translate(Vector2.up * speed * Time.deltaTime);
+                    transform.Translate(new Vector2(pearlYRange * speed * Time.deltaTime, 1f * speed * Time.deltaTime));
                     break;
                 case 'D':
                     if (playerDir.y > 0f)
@@ -79,7 +90,7 @@ public class PickaxeProjectile : MonoBehaviour
                     {
                         throwDistance += 1f;
                     }
-                    transform.Translate(Vector2.down * speed * Time.deltaTime);
+                    transform.Translate(new Vector2(pearlYRange * speed * Time.deltaTime, -1f * speed * Time.deltaTime));
                     break;
                 default:
                     break;
@@ -93,7 +104,7 @@ public class PickaxeProjectile : MonoBehaviour
             }
             
             // ----
-            throwDistance = PlayerStats.pickaxeRange;
+            throwDistance = PlayerStats.pickaxeRange / 1.8f;
             // ----
         }
         else
@@ -107,6 +118,7 @@ public class PickaxeProjectile : MonoBehaviour
             {
                 playerObj.GetComponent<PlayerMovement>().throwDelay = 1f;
                 Destroy(gameObject);
+                PlayerStats.pickaxeRetrieved = true;
             }
             
             // Physics.IgnoreCollision(GetComponent<Collider>(), GameObject.FindGameObjectWithTag("Enemy").GetComponent<Collider>(), false);

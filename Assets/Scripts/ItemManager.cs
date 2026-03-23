@@ -51,6 +51,9 @@ public class ItemManager : MonoBehaviour
                 case "labradorite":
                     PlayerStats.labradorite = true;
                     break;
+                case "pearl":
+                    PlayerStats.pearl = true;
+                    break;
                 default:
                     break;
             }

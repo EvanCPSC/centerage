@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 1536
     height: 780.8
   m_ShowMode: 4
-  m_Title: Project
+  m_Title: Hierarchy
   m_RootView: {fileID: 8}
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
@@ -74,7 +74,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 56}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 99
+  controlID: 101
   draggingID: 0
 --- !u!114 &4
 MonoBehaviour:
@@ -147,8 +147,8 @@ MonoBehaviour:
     y: 0
     width: 363.19995
     height: 724.8
-  m_MinSize: {x: 276, y: 76}
-  m_MaxSize: {x: 4001, y: 4026}
+  m_MinSize: {x: 275, y: 50}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 18}
   m_Panes:
   - {fileID: 18}
@@ -569,6 +569,7 @@ MonoBehaviour:
     - {fileID: 3999234004496848423, guid: a3b00503bb2897d4bb87dbcf591b934d, type: 2}
     - {fileID: 7552792937245245374, guid: 3730997de64639f468d7eebe9f1a723a, type: 2}
     - {fileID: 1460377145556094177, guid: 08aa516253920244e8c4765553dbf70b, type: 2}
+    - {fileID: -3641699306626433607, guid: e60997a51b521dd46a63f6f4a7361620, type: 2}
     m_ValueSerializationHelper:
     - e00: 0.5754473
       e01: 0
@@ -682,10 +683,26 @@ MonoBehaviour:
       e31: 0
       e32: 0
       e33: 1
+    - e00: 1
+      e01: 0
+      e02: 0
+      e03: 0
+      e10: 0
+      e11: 1
+      e12: 0
+      e13: 0
+      e20: 0
+      e21: 0
+      e22: 1
+      e23: 0
+      e30: 0
+      e31: 0
+      e32: 0
+      e33: 1
   m_PreviewAnimator: {fileID: 0}
-  m_AnimatorController: {fileID: 9100000, guid: eae8c0c9be3026f48ba0e2f997fbed19, type: 2}
+  m_AnimatorController: {fileID: 9100000, guid: e60997a51b521dd46a63f6f4a7361620, type: 2}
   m_BreadCrumbs:
-  - m_Target: {fileID: -1601956607559746643, guid: eae8c0c9be3026f48ba0e2f997fbed19, type: 2}
+  - m_Target: {fileID: -3641699306626433607, guid: e60997a51b521dd46a63f6f4a7361620, type: 2}
     m_ScrollPosition: {x: 0, y: 0}
   stateMachineGraph: {fileID: 0}
   stateMachineGraphGUI: {fileID: 0}
@@ -1030,16 +1047,16 @@ MonoBehaviour:
     m_IsLocked: 0
   m_LastLocalAssetsSearchArea: 1
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 107.20044}
+    scrollPos: {x: 0, y: 131}
     m_SelectedIDs:
-    - m_Data: 69470
+    - m_Data: 49520
     m_LastClickedID:
-      m_Data: 69470
+      m_Data: 49520
     m_ExpandedIDs:
     - m_Data: 0
-    - m_Data: 68734
-    - m_Data: 78188
-    - m_Data: 78348
+    - m_Data: 49196
+    - m_Data: 49504
+    - m_Data: 49514
     - m_Data: 1000000000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -1058,7 +1075,7 @@ MonoBehaviour:
       m_OriginalEventType: 11
       m_IsRenamingFilename: 1
       m_TrimLeadingAndTrailingWhitespace: 0
-      m_ClientGUIView: {fileID: 0}
+      m_ClientGUIView: {fileID: 7}
     m_SearchString: 
     m_CreateAssetUtility:
       m_EndAction: {fileID: 0}
@@ -1071,7 +1088,9 @@ MonoBehaviour:
     m_SelectedIDs: []
     m_LastClickedID:
       m_Data: 0
-    m_ExpandedIDs: []
+    m_ExpandedIDs:
+    - m_Data: 0
+    - m_Data: 49196
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1098,9 +1117,8 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs:
-    - m_Data: 87436
-    m_LastClickedInstanceID: 87436
+    m_SelectedInstanceIDs: []
+    m_LastClickedInstanceID: 0
     m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs:
     - m_Data: 48464
@@ -1110,6 +1128,8 @@ MonoBehaviour:
     - m_Data: 53578
     - m_Data: 51284
     - m_Data: 53316
+    - m_Data: 49914
+    - m_Data: 49908
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1184,7 +1204,7 @@ MonoBehaviour:
     m_ControlHash: -371814159
     m_PrefName: Preview_InspectorPreview
   m_LastInspectedObjectInstanceID: -1
-  m_LastVerticalScrollValue: 741.60004
+  m_LastVerticalScrollValue: 0
   m_GlobalObjectId: 
   m_InspectorMode: 0
   m_LockTracker:
@@ -1231,47 +1251,23 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs:
-      - m_Data: 87436
+      m_SelectedIDs: []
       m_LastClickedID:
         m_Data: 0
       m_ExpandedIDs:
-      - m_Data: -194210
-      - m_Data: -178594
-      - m_Data: -178588
-      - m_Data: -178032
-      - m_Data: -167950
-      - m_Data: -167058
-      - m_Data: -158106
-      - m_Data: -146580
-      - m_Data: -145570
-      - m_Data: -141354
-      - m_Data: -140336
-      - m_Data: -139102
-      - m_Data: -138468
-      - m_Data: -131862
-      - m_Data: -128618
-      - m_Data: -125960
-      - m_Data: -122892
-      - m_Data: -121600
-      - m_Data: -119296
-      - m_Data: -117272
-      - m_Data: -113960
-      - m_Data: -111282
-      - m_Data: -101910
-      - m_Data: -94316
-      - m_Data: -74606
-      - m_Data: -63214
-      - m_Data: -62122
-      - m_Data: 86656
-      - m_Data: 88400
-      - m_Data: 95282
-      - m_Data: 98942
-      - m_Data: 100746
+      - m_Data: -67664
+      - m_Data: -41254
+      - m_Data: -40566
+      - m_Data: -35352
+      - m_Data: -32250
+      - m_Data: -31518
+      - m_Data: -21462
+      - m_Data: -18564
+      - m_Data: -1314
       m_RenameOverlay:
         m_UserAcceptedRename: 0
-        m_Name: ItemText
-        m_OriginalName: ItemText
+        m_Name: 
+        m_OriginalName: 
         m_EditFieldRect:
           serializedVersion: 2
           x: 0
@@ -1279,10 +1275,10 @@ MonoBehaviour:
           width: 0
           height: 0
         m_UserData:
-          m_Data: -135288
+          m_Data: 0
         m_IsWaitingForDelay: 0
         m_IsRenaming: 0
-        m_OriginalEventType: 4
+        m_OriginalEventType: 11
         m_IsRenamingFilename: 0
         m_TrimLeadingAndTrailingWhitespace: 0
         m_ClientGUIView: {fileID: 4}
@@ -1790,9 +1786,9 @@ MonoBehaviour:
   m_AudioPlay: 0
   m_DebugDrawModesUseInteractiveLightBakingData: 0
   m_Position:
-    m_Target: {x: -3.115469, y: 12.099365, z: 6}
+    m_Target: {x: -1.9855065, y: 0.23506168, z: 6}
     speed: 2
-    m_Value: {x: -3.115469, y: 12.099365, z: 6}
+    m_Value: {x: -1.9855065, y: 0.23506168, z: 6}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0

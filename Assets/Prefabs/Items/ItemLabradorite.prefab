@@ -143,18 +143,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   itemName: Labradorite
   itemDesc: Unleash your Inner Wolf
-  quality: 3
+  quality: 2
   effect:
   - speed
   - damage
-  - force
   - range
   - labradorite
   value:
   - 0.8
   - 1
-  - 0.8
+  - 0.82
   - -1.5
-  - 0
   audioManager: {fileID: 0}
   gameManager: {fileID: 0}
