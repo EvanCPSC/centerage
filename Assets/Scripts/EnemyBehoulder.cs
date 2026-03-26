@@ -27,9 +27,9 @@ public class EnemyBehoulder : MonoBehaviour
         Invoke("TrackPlayer", 0.4f);
 
         // change anim
-        if (horizontal == 0 && vertical == 0)
+        if (horizontal == 0f && vertical == 0f)
         {
-            anim.SetFloat("DirX", 1);
+            anim.SetFloat("DirX", 1f);
         } else
         {
             anim.SetFloat("DirX", horizontal);

@@ -305,7 +305,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: vA.1.1
+  m_text: vA.1.2
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1393,8 +1393,8 @@ MonoBehaviour:
   - {fileID: 6673014061195395959, guid: 36475008f637c7749b3a0f5babaee98a, type: 3}
   enemies:
   - {fileID: 1778397954810383083, guid: dbbda2fe2d04137409ab8543b79ce89f, type: 3}
-  - {fileID: 1778397954810383083, guid: dbbda2fe2d04137409ab8543b79ce89f, type: 3}
   - {fileID: 3405424642226590954, guid: 5e4dfff1952ef6b4eb8d16077291ce25, type: 3}
+  - {fileID: 1778397954810383083, guid: cb2a7248f3c39474cac765a743b89a8e, type: 3}
   pooledItems: []
   weightedItems: []
   isPaused: 0

@@ -58,8 +58,10 @@
     <Compile Include="Assets\Scripts\SettingsDataObject.cs" />
     <Compile Include="Assets\Scripts\EnemyBehoulder.cs" />
     <Compile Include="Assets\Scripts\Room Gen\Destroyer.cs" />
+    <Compile Include="Assets\Scripts\ProjectileLavaball.cs" />
     <Compile Include="Assets\Scripts\ItemManager.cs" />
     <Compile Include="Assets\Scripts\PlayerStats.cs" />
+    <Compile Include="Assets\Scripts\EnemyGoomly.cs" />
     <Compile Include="Assets\Scripts\PickaxeProjectile.cs" />
     <Compile Include="Assets\Scripts\Room Gen\RoomTemplates.cs" />
     <Compile Include="Assets\Scripts\ItemGetCanvasManager.cs" />

@@ -19,6 +19,7 @@ TagManager:
   - GameManager
   - Floor
   - Audio
+  - Projectile
   layers:
   - Default
   - TransparentFX
@@ -32,7 +33,7 @@ TagManager:
   - Wall
   - Item
   - Door
-  - 
+  - Projectile
   - 
   - 
   - 

@@ -189,7 +189,7 @@ public class PlayerMovement : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Enemy") && !isHit)
+        if ((collision.gameObject.CompareTag("Enemy") || collision.gameObject.CompareTag("Projectile")) && !isHit)
         {
             PlayerStats.playerHealth -= 1f;
             audioManager.PlaySFX(audioManager.sfxPlayerHit);

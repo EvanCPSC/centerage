@@ -13,9 +13,10 @@ GameObject:
   - component: {fileID: 8477646924694592992}
   - component: {fileID: 3183162072520045708}
   - component: {fileID: 5569786712626906579}
-  m_Layer: 7
+  - component: {fileID: 1028506725996011277}
+  m_Layer: 12
   m_Name: ProjectileLavaball
-  m_TagString: Pickaxe
+  m_TagString: Projectile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -179,3 +180,18 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1028506725996011277
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2769734730288082402}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea53e6892cc2942498ad8e64b2731119, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ProjectileLavaball
+  fromPlayer: 0
+  speed: 0
+  endpos: {fileID: 0}

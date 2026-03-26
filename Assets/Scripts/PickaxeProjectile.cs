@@ -55,40 +55,40 @@ public class PickaxeProjectile : MonoBehaviour
                 case 'L':
                     if (playerDir.x > 0f)
                     {
-                        throwDistance -= 1f;
+                        throwDistance -= 0.6f;
                     } else if (playerDir.x < 0f)
                     {
-                        throwDistance += 1f;
+                        throwDistance += 0.6f;
                     }
                     transform.Translate(new Vector2(-1f * speed * Time.deltaTime, pearlYRange * speed * Time.deltaTime));
                     break;
                 case 'R':
                     if (playerDir.x > 0f)
                     {
-                        throwDistance += 1f;
+                        throwDistance += 0.6f;
                     } else if (playerDir.x < 0f)
                     {
-                        throwDistance -= 1f;
+                        throwDistance -= 0.6f;
                     }
                     transform.Translate(new Vector2(1f * speed * Time.deltaTime, pearlYRange * speed * Time.deltaTime));
                     break;
                 case 'U':
                     if (playerDir.y > 0f)
                     {
-                        throwDistance += 1f;
+                        throwDistance += 0.6f;
                     } else if (playerDir.y < 0f)
                     {
-                        throwDistance -= 1f;
+                        throwDistance -= 0.6f;
                     }
                     transform.Translate(new Vector2(pearlYRange * speed * Time.deltaTime, 1f * speed * Time.deltaTime));
                     break;
                 case 'D':
                     if (playerDir.y > 0f)
                     {
-                        throwDistance -= 1f;
+                        throwDistance -= 0.6f;
                     } else if (playerDir.y < 0f)
                     {
-                        throwDistance += 1f;
+                        throwDistance += 0.6f;
                     }
                     transform.Translate(new Vector2(pearlYRange * speed * Time.deltaTime, -1f * speed * Time.deltaTime));
                     break;
@@ -104,7 +104,7 @@ public class PickaxeProjectile : MonoBehaviour
             }
             
             // ----
-            throwDistance = PlayerStats.pickaxeRange / 1.8f;
+            throwDistance = PlayerStats.pickaxeRange / 1.75f;
             // ----
         }
         else
