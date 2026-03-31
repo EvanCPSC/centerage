@@ -14,6 +14,8 @@ public static class PlayerStats
     public static bool pickaxeReturning = false;
     public static bool pickaxeRetrieved = false;
     public static List<string> playerItems = new List<string>(); // for later implementation
+    public static List<string> playerAbilities = new List<string>();
+    public static int playerSelectedAbility = 0;
     private static float defPlayerSpeed = 5f;
     private static float defPlayerHealth = 6f;
     private static float defPickaxeForce = 8f;
@@ -29,6 +31,8 @@ public static class PlayerStats
         pickaxeRange = defPickaxeRange;
         pickaxeReturning = false;
         playerItems = new List<string>();
+        playerAbilities = new List<string>();
+        playerSelectedAbility = 0;
         isPaused = false;
         SetDefaultItemBools();
     }

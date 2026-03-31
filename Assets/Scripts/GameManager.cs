@@ -6,11 +6,12 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
     [SerializeField] PlayerMovement playerController;
-    [SerializeField] Canvas pauseCanvas, itemGetCanvas;
+    [SerializeField] Canvas pauseCanvas, itemGetCanvas, debugCanvas;
     [SerializeField] public GameObject[] items, enemies;
     public List<GameObject> pooledItems;
     public List<GameObject> weightedItems;
     public bool isPaused = false;
+    public bool isDebug = false;
     public bool roomCleared = true;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -67,6 +68,21 @@ public class GameManager : MonoBehaviour
             Time.timeScale = 0;
             pauseCanvas.gameObject.SetActive(true);
             isPaused = true;
+        }
+    }
+
+    public void DebugGame()
+    {
+        if (isDebug) // calling when is paused, going to unpause it
+        {
+            Time.timeScale = 1;
+            debugCanvas.gameObject.SetActive(false);
+            isDebug = false;
+        } else // calling when is unpaused, going to pause it
+        {
+            Time.timeScale = 0;
+            debugCanvas.gameObject.SetActive(true);
+            isDebug = true;
         }
     }
 

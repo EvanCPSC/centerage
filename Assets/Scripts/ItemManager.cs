@@ -19,7 +19,7 @@ public class ItemManager : MonoBehaviour
     }
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void GiveStat()
+    public void GiveStat()
     {
         for (int i = 0; i < effect.Length; i ++) {
             switch (effect[i])
@@ -47,6 +47,7 @@ public class ItemManager : MonoBehaviour
                     break;
                 case "dioptase":
                     PlayerStats.dioptase = true;
+                    PlayerStats.playerAbilities.Add("dioptase");
                     break;
                 case "labradorite":
                     PlayerStats.labradorite = true;

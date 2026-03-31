@@ -40,7 +40,7 @@ public class PlayerMovement : MonoBehaviour
         vertical = Input.GetAxisRaw("Vertical");
 
         // change animation direction
-        if (!GameManager.Instance.isPaused) {
+        if (!GameManager.Instance.isPaused && !GameManager.Instance.isDebug) {
             if (horizontal != 0 || vertical != 0)
             {
                 anim.SetBool("isWalking", true);
@@ -74,9 +74,14 @@ public class PlayerMovement : MonoBehaviour
         }
 
         // inputs
-        if (Input.GetButtonDown("Cancel"))
+        if (Input.GetButtonDown("Cancel") && !GameManager.Instance.isDebug)
         {
             GameManager.Instance.PauseGame();
+        }
+
+        if (Input.GetButtonDown("Debug") && !GameManager.Instance.isPaused)
+        {
+            GameManager.Instance.DebugGame();
         }
 
         if (throwDelay <= 0) {
