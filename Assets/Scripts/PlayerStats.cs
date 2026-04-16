@@ -44,6 +44,8 @@ public static class PlayerStats
     public static bool pearl = false;
     public static bool pearlAlt = false;
     public static float pearlRange = 0.2f; // const
+    public static bool moonstone = false;
+    public static bool moonstoneUsed = false;
 
     public static void SetDefaultItemBools()
     {
@@ -52,5 +54,7 @@ public static class PlayerStats
         labradorite = false;
         pearl = false;
         pearlAlt = false;
+        moonstone = false;
+        moonstoneUsed = false;
     }
 }

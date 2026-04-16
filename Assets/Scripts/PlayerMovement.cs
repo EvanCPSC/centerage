@@ -125,6 +125,46 @@ public class PlayerMovement : MonoBehaviour
                 if (pearlProjectile != null) Destroy(pearlProjectile);
             }
         }
+        if (PlayerStats.moonstone && !PlayerStats.moonstoneUsed)
+        {
+            if (Input.GetButtonDown("Jump") && pickaxe != null)
+            {
+                PickaxeProjectile pickaxeScript = pickaxe.GetComponent<PickaxeProjectile>();
+                if (pickaxeScript != null)
+                {
+                    Vector2 playerPos = transform.position;
+                    Vector2 pickPos = pickaxeScript.transform.position;
+                    pickaxeScript.angle = Mathf.Atan2(pickPos.y - playerPos.y, pickPos.x - playerPos.x);
+                    ProjectilePearl pearlScript = null;
+                    if (pearlProjectile != null) {
+                        pearlScript = pearlProjectile.GetComponent<ProjectilePearl>();
+                        pearlScript.angle = Mathf.Atan2(pearlScript.transform.position.y - playerPos.y, pearlScript.transform.position.x - playerPos.x);
+                    }
+                    switch (pickaxeScript.dir)
+                    {
+                        case 'L':
+                            pickaxeScript.radius = playerPos.x - pickPos.x;
+                            if (pearlProjectile != null) pearlScript.radius = playerPos.x - pearlScript.transform.position.x;
+                            break;
+                        case 'R':
+                            pickaxeScript.radius = pickPos.x - playerPos.x;
+                            if (pearlProjectile != null) pearlScript.radius = pearlScript.transform.position.x - playerPos.x;
+                            break;
+                        case 'U':
+                            pickaxeScript.radius = pickPos.y - playerPos.y;
+                            if (pearlProjectile != null) pearlScript.radius = pearlScript.transform.position.y - playerPos.y;
+                            break;
+                        case 'D':
+                            pickaxeScript.radius = playerPos.y - pickPos.y;
+                            if (pearlProjectile != null) pearlScript.radius = playerPos.y - pearlScript.transform.position.y;
+                            break;
+                        default:
+                            break;
+                    }
+                }
+                PlayerStats.moonstoneUsed = true;
+            }
+        }
     }
     private void FixedUpdate()
     {
@@ -150,6 +190,20 @@ public class PlayerMovement : MonoBehaviour
         {
             pearlScript.dir = dirc;
         }
+    }
+
+    public void DestroyPickaxe()
+    {
+        if (pickaxe != null)
+        {
+            Destroy(pickaxe);
+        }
+        
+        if (pearlProjectile != null)
+        {
+            Destroy(pearlProjectile);
+        }
+        PlayerStats.moonstoneUsed = false;
     }
 
     void OnTriggerEnter2D(Collider2D trigger)

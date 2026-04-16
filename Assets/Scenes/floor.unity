@@ -979,7 +979,6 @@ GameObject:
   - component: {fileID: 837879520}
   - component: {fileID: 837879519}
   - component: {fileID: 837879518}
-  - component: {fileID: 837879517}
   m_Layer: 5
   m_Name: InputField (TMP)
   m_TagString: Untagged
@@ -1007,20 +1006,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: -180}
   m_SizeDelta: {x: 688, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &837879517
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 837879515}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6982ab138b2eceb449c3b890cff8f2e8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: '::'
-  debugField: {fileID: 0}
-  commands: {fileID: 0}
 --- !u!114 &837879518
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1601,7 +1586,7 @@ MonoBehaviour:
   m_fontColor32:
     serializedVersion: 2
     rgba: 4294945791
-  m_fontColor: {r: 0.86415094, g: 0, b: 0.86415094, a: 1}
+  m_fontColor: {r: 0.86415094, g: 0.17446065, b: 0.83811235, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -1624,7 +1609,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 1
   m_HorizontalAlignment: 1
   m_VerticalAlignment: 1024
   m_textAlignment: 65535
@@ -2020,7 +2005,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 0.13962269, g: 0.13962269, b: 0.13962269, a: 0.78431374}
+  m_Color: {r: 0.13962269, g: 0.13962269, b: 0.13962269, a: 0.9254902}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -2092,10 +2077,12 @@ MonoBehaviour:
   - {fileID: 6673014061195395959, guid: ec267ded853076a4ebcb7d60fa1cf1db, type: 3}
   - {fileID: 6673014061195395959, guid: 779405933bc6e0943989fac2e08a7e28, type: 3}
   - {fileID: 6673014061195395959, guid: 36475008f637c7749b3a0f5babaee98a, type: 3}
+  - {fileID: 6673014061195395959, guid: 0315c9a2b2c265d49a4f4e393fe00b87, type: 3}
   enemies:
   - {fileID: 1778397954810383083, guid: dbbda2fe2d04137409ab8543b79ce89f, type: 3}
   - {fileID: 3405424642226590954, guid: 5e4dfff1952ef6b4eb8d16077291ce25, type: 3}
   - {fileID: 1778397954810383083, guid: cb2a7248f3c39474cac765a743b89a8e, type: 3}
+  - {fileID: 1778397954810383083, guid: 9041d36e43efead4097cc58d11559c2f, type: 3}
   pooledItems: []
   weightedItems: []
   isPaused: 0

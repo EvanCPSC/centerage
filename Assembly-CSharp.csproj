@@ -68,6 +68,7 @@
     <Compile Include="Assets\Scripts\ItemGetCanvasManager.cs" />
     <Compile Include="Assets\Scripts\PlayerMovement.cs" />
     <Compile Include="Assets\Scripts\EnemyHappimoss.cs" />
+    <Compile Include="Assets\Scripts\EnemyLavathorn.cs" />
     <Compile Include="Assets\Scripts\RoomObjectManager.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />
     <Compile Include="Assets\Scripts\Room Gen\DoorSpawner.cs" />

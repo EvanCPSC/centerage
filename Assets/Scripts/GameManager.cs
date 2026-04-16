@@ -86,6 +86,11 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void ResetPickaxe()
+    {
+        playerController.DestroyPickaxe();
+    }
+
     public void CloseRoom(List<GameObject> doors)
     {
         foreach (GameObject door in doors) {

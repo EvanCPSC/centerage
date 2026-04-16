@@ -45,15 +45,19 @@ public class ItemManager : MonoBehaviour
                 case "health":
                     PlayerStats.playerHealth += value[i];
                     break;
-                case "dioptase":
-                    PlayerStats.dioptase = true;
-                    PlayerStats.playerAbilities.Add("dioptase");
-                    break;
                 case "labradorite":
                     PlayerStats.labradorite = true;
                     break;
                 case "pearl":
                     PlayerStats.pearl = true;
+                    break;
+                case "dioptase":
+                    PlayerStats.dioptase = true;
+                    PlayerStats.playerAbilities.Add("dioptase");
+                    break;
+                case "moonstone":
+                    PlayerStats.moonstone = true;
+                    PlayerStats.playerAbilities.Add("moonstone");
                     break;
                 default:
                     break;
