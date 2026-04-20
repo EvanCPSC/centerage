@@ -154,6 +154,7 @@ public class PickaxeProjectile : MonoBehaviour
                 Destroy(gameObject);
                 PlayerStats.pickaxeRetrieved = true;
                 PlayerStats.moonstoneUsed = false;
+                PlayerStats.sunstoneUsed = false;
             }
             
             // Physics.IgnoreCollision(GetComponent<Collider>(), GameObject.FindGameObjectWithTag("Enemy").GetComponent<Collider>(), false);

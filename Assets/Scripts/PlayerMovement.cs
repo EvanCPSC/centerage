@@ -12,8 +12,7 @@ public class PlayerMovement : MonoBehaviour
     private float invulFrames;
     public float throwDelay;
     [SerializeField] private Rigidbody2D rb;
-    [SerializeField] private GameObject pickaxePrefab;
-    [SerializeField] private GameObject pearlPrefab;
+    [SerializeField] private GameObject pickaxePrefab, pearlPrefab, lavaballPrefab;
     [SerializeField] private Transform firePoint;
     GameObject pickaxe = null;
     GameObject pearlProjectile = null;
@@ -163,6 +162,49 @@ public class PlayerMovement : MonoBehaviour
                     }
                 }
                 PlayerStats.moonstoneUsed = true;
+            }
+        }
+
+        if (PlayerStats.sunstone && !PlayerStats.sunstoneUsed)
+        {
+            if (Input.GetButtonDown("Jump") && pickaxe != null)
+            {
+                PlayerStats.sunstoneUsed = true;
+                Vector2[] dirs =
+                {
+                    new Vector2(-2, 0),
+                    new Vector2(2, 0),
+                    new Vector2(0, 2),
+                    new Vector2(0, -2),
+                    new Vector2(-2, 2),
+                    new Vector2(-2, -2),
+                    new Vector2(2, -2),
+                    new Vector2(2, 2),
+                };
+                Vector2 pickpos = pickaxe.GetComponent<PickaxeProjectile>().transform.position;
+                foreach (Vector2 dir in dirs)
+                {
+                    GameObject lb = Instantiate(lavaballPrefab, pickpos, Quaternion.identity);
+                    ProjectileLavaball lbScript = lb.GetComponent<ProjectileLavaball>();
+                    if (lbScript != null)
+                    {
+                        lbScript.dir = pickpos + dir;
+                        lbScript.startPos = pickpos;
+                    }
+                }
+                if (pearlProjectile != null) {
+                    Vector2 pearlpos = pearlProjectile.GetComponent<ProjectilePearl>().transform.position;
+                    foreach (Vector2 dir in dirs)
+                    {
+                        GameObject lb = Instantiate(lavaballPrefab, pearlpos, Quaternion.identity);
+                        ProjectileLavaball lbScript = lb.GetComponent<ProjectileLavaball>();
+                        if (lbScript != null)
+                        {
+                            lbScript.dir = pearlpos + dir;
+                            lbScript.startPos = pearlpos;
+                        }
+                    }
+                }
             }
         }
     }

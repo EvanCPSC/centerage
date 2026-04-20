@@ -79,8 +79,8 @@ public class EnemyLavathorn : MonoBehaviour
         ProjectileLavaball lavaballScript = lavaball.GetComponent<ProjectileLavaball>();
         if (lavaballScript != null)
         {
-            lavaballScript.dir = GameObject.FindGameObjectWithTag("Player").transform;
-            lavaballScript.startPos = gameObject.transform;
+            lavaballScript.dir = GameObject.FindGameObjectWithTag("Player").transform.position;
+            lavaballScript.startPos = gameObject.transform.position;
         }
         isShooting = false;
     }

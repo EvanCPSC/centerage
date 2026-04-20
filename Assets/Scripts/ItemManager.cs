@@ -59,6 +59,10 @@ public class ItemManager : MonoBehaviour
                     PlayerStats.moonstone = true;
                     PlayerStats.playerAbilities.Add("moonstone");
                     break;
+                case "sunstone":
+                    PlayerStats.sunstone = true;
+                    PlayerStats.playerAbilities.Add("sunstone");
+                    break;
                 default:
                     break;
             }

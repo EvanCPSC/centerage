@@ -8,13 +8,13 @@ public class ProjectileLavaball : MonoBehaviour
     
     [SerializeField] public bool fromPlayer;
     public float speed;
-    public Transform dir;
-    public Transform startPos;
+    public Vector2 dir;
+    public Vector2 startPos;
     private Vector2 endpos;
 
     void Start()
     {
-        endpos = new Vector2(dir.position.x - startPos.position.x, dir.position.y - startPos.position.y);
+        endpos = new Vector2(dir.x - startPos.x, dir.y - startPos.y);
         speed = 2f;
     }
 

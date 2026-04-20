@@ -2078,6 +2078,7 @@ MonoBehaviour:
   - {fileID: 6673014061195395959, guid: 779405933bc6e0943989fac2e08a7e28, type: 3}
   - {fileID: 6673014061195395959, guid: 36475008f637c7749b3a0f5babaee98a, type: 3}
   - {fileID: 6673014061195395959, guid: 0315c9a2b2c265d49a4f4e393fe00b87, type: 3}
+  - {fileID: 6673014061195395959, guid: 30faa522cd478db488667f0e0d52c782, type: 3}
   enemies:
   - {fileID: 1778397954810383083, guid: dbbda2fe2d04137409ab8543b79ce89f, type: 3}
   - {fileID: 3405424642226590954, guid: 5e4dfff1952ef6b4eb8d16077291ce25, type: 3}
@@ -3446,6 +3447,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 8520427086518638711, guid: ded4f126f2e87cb468c2d634a4d33cf9, type: 3}
+      propertyPath: lavaballPrefab
+      value: 
+      objectReference: {fileID: 2769734730288082402, guid: 6fd19be063fffbe45b6e6090b75a2305, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

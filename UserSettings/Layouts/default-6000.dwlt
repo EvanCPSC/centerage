@@ -74,7 +74,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 56}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 59
+  controlID: 110
   draggingID: 0
 --- !u!114 &4
 MonoBehaviour:
@@ -95,8 +95,8 @@ MonoBehaviour:
     y: 0
     width: 293.60004
     height: 448
-  m_MinSize: {x: 202, y: 226}
-  m_MaxSize: {x: 4002, y: 4026}
+  m_MinSize: {x: 200, y: 200}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 19}
   m_Panes:
   - {fileID: 19}
@@ -126,7 +126,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 112}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 17
+  controlID: 135
   draggingID: 0
 --- !u!114 &6
 MonoBehaviour:
@@ -276,7 +276,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 112}
   m_MaxSize: {x: 16192, y: 16192}
   vertical: 1
-  controlID: 18
+  controlID: 29
   draggingID: 0
 --- !u!114 &12
 MonoBehaviour:
@@ -302,7 +302,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 56}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 19
+  controlID: 30
   draggingID: 0
 --- !u!114 &13
 MonoBehaviour:
@@ -819,9 +819,9 @@ MonoBehaviour:
       e32: 0
       e33: 1
   m_PreviewAnimator: {fileID: 0}
-  m_AnimatorController: {fileID: 9100000, guid: bcae5e9071554bf48a40adb0940cc971, type: 2}
+  m_AnimatorController: {fileID: 9100000, guid: 08aa516253920244e8c4765553dbf70b, type: 2}
   m_BreadCrumbs:
-  - m_Target: {fileID: 951479973869333656, guid: bcae5e9071554bf48a40adb0940cc971, type: 2}
+  - m_Target: {fileID: 1460377145556094177, guid: 08aa516253920244e8c4765553dbf70b, type: 2}
     m_ScrollPosition: {x: 0, y: 0}
   stateMachineGraph: {fileID: 0}
   stateMachineGraphGUI: {fileID: 0}
@@ -1149,7 +1149,7 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Prefabs/Enemies
+    - Assets/Prefabs/Projectiles
     m_Globs: []
     m_ProductIds: 
     m_AnyWithAssetOrigin: 0
@@ -1159,22 +1159,23 @@ MonoBehaviour:
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Prefabs/Enemies
+  - Assets/Prefabs/Projectiles
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\Users\gdrub\OneDrive\Documents\GitHub\centerage
   m_LockTracker:
     m_IsLocked: 0
   m_LastLocalAssetsSearchArea: 1
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 121.20001}
+    scrollPos: {x: 0, y: 63.19989}
     m_SelectedIDs:
-    - m_Data: 52826
+    - m_Data: 52142
     m_LastClickedID:
-      m_Data: 52826
+      m_Data: 52142
     m_ExpandedIDs:
     - m_Data: 0
-    - m_Data: 52696
-    - m_Data: 52810
+    - m_Data: 49940
+    - m_Data: 50046
+    - m_Data: 50056
     - m_Data: 1000000000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -1208,7 +1209,7 @@ MonoBehaviour:
       m_Data: 0
     m_ExpandedIDs:
     - m_Data: 0
-    - m_Data: 52696
+    - m_Data: 49940
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1237,7 +1238,7 @@ MonoBehaviour:
   m_ListAreaState:
     m_SelectedInstanceIDs: []
     m_LastClickedInstanceID: 0
-    m_HadKeyboardFocusLastEvent: 0
+    m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs:
     - m_Data: 48464
     - m_Data: 51494
@@ -1375,7 +1376,8 @@ MonoBehaviour:
       m_LastClickedID:
         m_Data: 0
       m_ExpandedIDs:
-      - m_Data: -1372
+      - m_Data: -2326
+      - m_Data: -1314
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
